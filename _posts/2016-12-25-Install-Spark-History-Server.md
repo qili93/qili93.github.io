@@ -15,11 +15,11 @@ Download HDFS package and decompress
 
 http://hadoop.apache.org/releases.html
 
-<pre class="prettyprint linenums">
+{% highlight bash linenos %}
 wget http://apache.fayea.com/hadoop/common/hadoop-2.6.5/hadoop-2.6.5.tar.gz
 tar -zxvf hadoop-2.6.5.tar.gz
 chown -R hadoop:hadoop hadoop-2.6.5
-</pre>
+{% endhighlight bash %}
 
 Create directories
 
@@ -52,7 +52,7 @@ export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
 
 ### Configure ./hadoop-2.6.5/etc/hadoop/**core-site.xml**
 
-<pre class="prettyprint linenums lang-xml">
+{% highlight xml linenos %}
 <configuration>
   <property>
     <name>fs.defaultFS</name>
@@ -76,7 +76,7 @@ export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
     <value>*</value>
   </property>
 </configuration>
-</pre>
+{% endhighlight xml %}
 
 ### Configure ./hadoop-2.6.5/etc/hadoop/**hdfs-site.xml**
 
