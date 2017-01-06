@@ -11,4 +11,5 @@ author: qili93
 email: qili93@qq.com
 hub: qili93
 markdown: rdiscount
-pygments: true
+# pygments: true
+# highlighter: pygments
