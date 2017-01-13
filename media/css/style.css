@@ -28,7 +28,7 @@ ul{list-style-position:inside;border: rgb(226, 222, 222);border-style: solid;bor
 li ol{border-style:none;}
 li ul{border-style:none;}
 ol ul, ul ol, ul ul, ol ol {margin-left:1em;}
-pre code{font-size:13px;line-height:1.6;display:block;overflow:auto;background: #eeeeee;border: 1px dashed #BBB;}
+pre code{font-size:13px;line-height:1.6;display:block;overflow:auto;background: #eeeeee;}
 blockquote{display:block;text-align:justify;border-left:4px solid #eeeeee;}
 blockquote{margin:1em 0em;padding-left:1.5em;}
 blockquote p{margin:0;padding:.5em 0;}
@@ -144,5 +144,5 @@ figure {
 margin: 0;
 padding: 0 0 0 0;
 border: 1px dashed #BBB;
-background: #ffffff;
+background: #eeeeee;
 }

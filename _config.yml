@@ -10,6 +10,6 @@ description: Qi Li's Blog
 author: qili93
 email: qili93@qq.com
 hub: qili93
-markdown: rdiscount
+markdown: kramdown
 # pygments: true
 # highlighter: pygments
