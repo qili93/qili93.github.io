@@ -11,4 +11,4 @@ tags: 随笔
 
 断断续续折腾了大概两三天的样子，中途还在MacPro上遇到各种诡异的问题，幸好都一一解决了。
 
-Enjoy the new log and new year :)
+Enjoy the new blog and new year :)

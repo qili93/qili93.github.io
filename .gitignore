@@ -1,5 +1,6 @@
 # Build and Release Folders
 _site/
+etach/
 bin/
 bin-debug/
 bin-release/
