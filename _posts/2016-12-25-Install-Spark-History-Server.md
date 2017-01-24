@@ -5,30 +5,48 @@ categories:  Spark
 tags: Spark
 ---
 
-# Enable History Server with HDFS
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-[TOC]
+- [Install HDFS with Hadoop 2.6.x](#install-hdfs-with-hadoop-26x)
+- [Configure Hadoop and Yarn](#configure-hadoop-and-yarn)
+  - [Configure /etc/profile](#configure-etcprofile)
+  - [Configure JAVA_HOME in hadoop-env.sh and yarn-env.sh](#configure-java_home-in-hadoop-envsh-and-yarn-envsh)
+  - [Configure ./hadoop-2.6.5/etc/hadoop/**core-site.xml**](#configure-hadoop-265etchadoopcore-sitexml)
+  - [Configure ./hadoop-2.6.5/etc/hadoop/**hdfs-site.xml**](#configure-hadoop-265etchadoophdfs-sitexml)
+  - [Configure ./hadoop-2.6.5/etc/hadoop/**mapred-site.xml**](#configure-hadoop-265etchadoopmapred-sitexml)
+  - [Configure ./hadoop-2.6.5/etc/hadoop/**yarn-site.xml**](#configure-hadoop-265etchadoopyarn-sitexml)
+  - [Configure the ./hadoop-2.6.5/etc/hadoop/slaves](#configure-the-hadoop-265etchadoopslaves)
+  - [Distribute Hadoop dir into nodes](#distribute-hadoop-dir-into-nodes)
+- [Start HDFS](#start-hdfs)
+  - [Format and start Namenode](#format-and-start-namenode)
+  - [Verify the HDFS daemons](#verify-the-hdfs-daemons)
+  - [Verify health by CLI](#verify-health-by-cli)
+  - [Verify health by Hadoop GUI](#verify-health-by-hadoop-gui)
+  - [Hadoop fs commands](#hadoop-fs-commands)
+- [Enable Spark History Server](#enable-spark-history-server)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Install HDFS with Hadoop 2.6.x
 
-Download HDFS package and decompress
-
-http://hadoop.apache.org/releases.html
+Download HDFS package and decompress from http://hadoop.apache.org/releases.html
 
 {% highlight bash linenos %}
 wget http://apache.fayea.com/hadoop/common/hadoop-2.6.5/hadoop-2.6.5.tar.gz
 tar -zxvf hadoop-2.6.5.tar.gz
 chown -R hadoop:hadoop hadoop-2.6.5
-{% endhighlight bash %}
+{% endhighlight %}
 
 Create directories
 
-<pre class="prettyprint linenums">
+{% highlight bash linenos %}
 cd hadoop-2.6.5/
 mkdir tmp
 mkdir name
 mkdir data
-</pre>
+{% endhighlight %}
 
 ## Configure Hadoop and Yarn
 Refer to http://hadoop.apache.org/docs/r2.6.5/hadoop-project-dist/hadoop-common/ClusterSetup.html
@@ -37,18 +55,18 @@ Edit the configuration files of Hadoop under `./hadoop-2.6.5/etc/hadoop`
 
 ### Configure /etc/profile
 
-<pre class="prettyprint linenums lang-bsh">
+{% highlight bash linenos %}
 export HADOOP_HOME=/myhome/hadoop/hadoop-2.6.5
 export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
-</pre>
+{% endhighlight %}
 
 ### Configure JAVA_HOME in hadoop-env.sh and yarn-env.sh
 
-<pre class="prettyprint linenums lang-bsh">
+{% highlight bash linenos %}
 vim /myhome/hadoop/hadoop-2.6.5/etc/hadoop/hadoop-env.sh
 vim /myhome/hadoop/hadoop-2.6.5/etc/hadoop/yarn-env.sh
 export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
-</pre>
+{% endhighlight %}
 
 ### Configure ./hadoop-2.6.5/etc/hadoop/**core-site.xml**
 
@@ -80,7 +98,7 @@ export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
 
 ### Configure ./hadoop-2.6.5/etc/hadoop/**hdfs-site.xml**
 
-<pre class="prettyprint linenums lang-xml">
+{% highlight xml linenos %}
 <configuration>
   <property>
     <name>dfs.namenode.secondary.http-address</name>
@@ -103,11 +121,11 @@ export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
     <value>true</value>
   </property>
 </configuration>
-</pre>
+{% endhighlight %}
 
 ### Configure ./hadoop-2.6.5/etc/hadoop/**mapred-site.xml**
 
-<pre class="prettyprint linenums lang-xml">
+{% highlight xml linenos %}
 <configuration>
   <property>
     <name>mapreduce.framework.name</name>
@@ -122,11 +140,11 @@ export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
     <value>9.111.159.156:19888</value>
   </property>
 </configuration>
-</pre>
+{% endhighlight %}
 
 ### Configure ./hadoop-2.6.5/etc/hadoop/**yarn-site.xml**
 
-```
+{% highlight xml linenos %}
 <configuration>
   <property>
     <name>yarn.nodemanager.aux-services</name>
@@ -157,38 +175,38 @@ export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
     <value>9.111.159.156:8088</value>
   </property>
 </configuration>
-```
+{% endhighlight %}
 
 ### Configure the ./hadoop-2.6.5/etc/hadoop/slaves
 
-<pre class="prettyprint linenums">
+{% highlight bash linenos %}
 9.111.159.156
 9.111.159.163
 9.111.159.164
-</pre>
+{% endhighlight %}
 
 ### Distribute Hadoop dir into nodes
 
-<pre class="prettyprint linenums">
+{% highlight bash linenos %}
 cd /myhome/hadoop
 scp -r hadoop-2.6.5/ hadoop@9.111.159.163://myhome/hadoop/
 scp -r hadoop-2.6.5/ hadoop@9.111.159.164://myhome/hadoop/
-</pre>
+{% endhighlight %}
 
 ## Start HDFS
 
 ### Format and start Namenode
 
-<pre class="prettyprint linenums">
+{% highlight bash linenos %}
 cd /myhome/hadoop/hadoop-2.6.5
 ./bin/hdfs namenode -format
 cd /myhome/hadoop/hadoop-2.6.5/sbin
 ./start-dfs.sh
-</pre>
+{% endhighlight %}
 
 ### Verify the HDFS daemons
 
-<pre class="prettyprint linenums">
+{% highlight bash linenos %}
 [hadoop@bjqilitst1 sbin]$ jps
 532 NameNode
 838 SecondaryNameNode
@@ -200,10 +218,10 @@ cd /myhome/hadoop/hadoop-2.6.5/sbin
 [hadoop@bjqilitst3 hadoop]$ jps
 1169 DataNode
 1248 Jps
-</pre>
+{% endhighlight %}
 
 ### Verify health by CLI
-<pre class="prettyprint linenums">
+{% highlight bash linenos %}
 [hadoop@bjqilitst1 hadoop-2.6.5]$  ./bin/hdfs dfsadmin -report
 Configured Capacity: 91005493248 (84.76 GB)
 Present Capacity: 81165398016 (75.59 GB)
@@ -269,7 +287,7 @@ Cache Used%: 100.00%
 Cache Remaining%: 0.00%
 Xceivers: 1
 Last contact: Sat Oct 29 06:34:44 EDT 2016
-</pre>
+{% endhighlight %}
 
 ### Verify health by Hadoop GUI
 
@@ -287,7 +305,7 @@ Once the Hadoop cluster is up and running check the web-ui of the components as 
 
 http://hadoop.apache.org/docs/r2.6.5/hadoop-project-dist/hadoop-common/FileSystemShell.html
 
-<pre class="prettyprint linenums">
+{% highlight bash linenos %}
 ./bin/hadoop fs -help
 hadoop fs -ls    /
 hadoop fs -ls -R   /
@@ -297,22 +315,25 @@ hadoop fs -get  <hdfs file path>   <local file path>
 hadoop fs -text <HDFS file>
 hadoop fs -rm   <HDFS file>
 hadoop fs -rmr  <HDFS directory>
-</pre>
+{% endhighlight %}
 
 ## Enable Spark History Server
 
 Refer to doc http://spark.apache.org/docs/latest/monitoring.html
 
 Enable Spark History Server on HDFS by edit `/myhome/hadoop/spark-1.6.2-bin-hadoop2.6/conf/spark-defaults.conf`
-</pre>properties
+
+{% highlight properties linenos %}
 spark.eventLog.enabled           true
 spark.eventLog.dir               hdfs://9.111.159.156:9000/hadoop/logdir
 spark.history.fs.logDirectory    hdfs://9.111.159.156:9000/hadoop/logdir
-</pre>
+{% endhighlight %}
+
 Start the Spark history server
-<pre class="prettyprint linenums">
+
+{% highlight bash linenos %}
 ./sbin/start-history-server.sh
-</pre>
+{% endhighlight %}
 
 Open the Historty Server Web GUI
 

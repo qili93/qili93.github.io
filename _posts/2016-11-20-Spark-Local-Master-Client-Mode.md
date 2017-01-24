@@ -5,17 +5,34 @@ categories:  Spark
 tags: Spark
 ---
 
-# Spark Mode - Local/Client/Cluster
-
 Refer to http://spark.apache.org/docs/latest/submitting-applications.html
 
-[TOC]
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+  - [Launching Applications with spark-submit](#launching-applications-with-spark-submit)
+    - [Master URLs](#master-urls)
+  - [Spark Shell Command](#spark-shell-command)
+- [Local Mode](#local-mode)
+- [Client Mode](#client-mode)
+- [Cluster Mode](#cluster-mode)
+  - [Spark Local Mode](#spark-local-mode)
+  - [Spark Client Mode](#spark-client-mode)
+  - [Spark Cluster Mode](#spark-cluster-mode)
+  - [Spark UI to check app status](#spark-ui-to-check-app-status)
+    - [Spark Master Web GUI](#spark-master-web-gui)
+    - [Spark Driver Web GUI](#spark-driver-web-gui)
+    - [Spark History Server UI](#spark-history-server-ui)
+  - [Spark Application Sample](#spark-application-sample)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Launching Applications with spark-submit
 
 Once a user application is bundled, it can be launched using the `bin/spark-submit` script.This script takes care of setting up the classpath with Spark and itsdependencies, and can support different cluster managers and deploy modes that Spark supports:
 
-```
+{% highlight bash linenos %}
 ./bin/spark-submit \
   --class <main-class> \
   --master <master-url> \
@@ -24,7 +41,7 @@ Once a user application is bundled, it can be launched using the `bin/spark-subm
   ... # other options
   <application-jar> \
   [application-arguments]
-```
+{% endhighlight %}
 
 Some of the commonly used options are:
 
@@ -56,7 +73,7 @@ The master URL passed to Spark can be in one of the following formats:
 
 Run the following commands is  running succesffully in both local machine or cluster node.
 
-```shell
+{% highlight bash linenos %}
 # Local Mode
 ./spark-shell
 
@@ -65,26 +82,26 @@ Run the following commands is  running succesffully in both local machine or clu
 
 # Cluster Mode
 ./spark-shell --master spark://9.111.159.156:7077 --deploy-mode cluster
-```
+{% endhighlight %}
 
 
 
 ## Spark Local Mode
 
 Run the following command in the local laptop/cluster node
-```shell
+{% highlight bash linenos %}
 ./spark-submit \
  --class main.scala.internals.GroupByKeyTest \
  --master local[2] \
 /out/artifacts/GroupByKeyTest1102_jar/GroupByKeyTest1102.jar
-```
+{% endhighlight %}
 
 
 
 ## Spark Client Mode
 
 Run the following command in the local laptop/cluster node
-```shell
+{% highlight bash linenos %}
 ./spark-submit \
 --master spark://9.111.159.156:7077 \
 --class org.apache.spark.examples.GroupByTest \
@@ -95,7 +112,7 @@ Run the following command in the local laptop/cluster node
  --master spark://9.111.159.156:7077 \
  --deploy-mode client \
 /myhome/hadoop/upload/GroupByKeyTest1102.jar
-```
+{% endhighlight %}
 
 
 
@@ -103,7 +120,7 @@ Run the following command in the local laptop/cluster node
 
 Run the following command in the local laptop/cluster node
 
-```shell
+{% highlight bash linenos %}
 ./spark-submit \
 --master spark://9.111.159.156:7077 \
 --class org.apache.spark.examples.GroupByTest \
@@ -117,7 +134,7 @@ Run the following command in the local laptop/cluster node
 --deploy-mode cluster \
 ../lib/spark-examples-1.6.2-hadoop2.6.0.jar \
 100 1000 10000 36
-```
+{% endhighlight %}
 
 
 
@@ -144,10 +161,10 @@ Note that this information is only available for the duration of the application
 
 If Spark is run on Mesos or YARN, it is still possible to construct the UI of anapplication through Spark’s history server, provided that the application’s event logs exist.You can start the history server by executing:
 
-```
+{% highlight bash linenos %}
 ./sbin/start-history-server.sh
 
-```
+{% endhighlight %}
 
 This creates a web interface at `http://<server-url>:18080` by default, listing incompleteand completed applications and attempts.
 
@@ -155,17 +172,17 @@ When using the file-system provider class (see `spark.history.provider` below), 
 
 The spark jobs themselves must be configured to log events, and to log them to the same shared,writeable directory. For example, if the server was configured with a log directory of`hdfs://namenode/shared/spark-logs`, then the client-side options would be:
 
-```properties
+{% highlight properties linenos %}
 spark.eventLog.enabled  true
 spark.eventLog.dir      hdfs://namenode/shared/spark-logs
-```
+{% endhighlight %}
 
 
 ## Spark Application Sample
 
 The following sample is compiled and packaged by IDEA
 
-```scala
+{% highlight scala linenos %}
 package main.scala.internals
 
 /**
@@ -211,5 +228,5 @@ object GroupByKeyTest {
     sc.stop()
   }
 }
-```
+{% endhighlight %}
 

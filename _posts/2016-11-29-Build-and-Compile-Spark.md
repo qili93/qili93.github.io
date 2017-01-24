@@ -5,63 +5,60 @@ categories:  Spark
 tags: Spark
 ---
 
-# Compile Spark and Build Spark Package
+### Step 1: Download Spark source code from git
 
-[TOC]
+Download Link: http://spark.apache.org/downloads.html
 
-## Compile Spark and Build Spark Package
+*Note: Starting version 2.0, Spark is built with Scala 2.11 and SBT 0.13.11 by default.*
 
-### Download Spark source code from git
+{% highlight bash linenos %}
+# Master development branch
+git clone git://github.com/apache/spark.git
 
- http://spark.apache.org/downloads.html
+# 2.1 maintenance branch with stability fixes on top of Spark 2.1.0
+git clone git://github.com/apache/spark.git -b branch-2.1
+{% endhighlight %}
 
-```shell
- yum install git
+### Step 2: Configure Maven and Compile
 
- # Master development branch
- git clone git://github.com/apache/spark.git
+Apache Spark document link http://spark.apache.org/docs/latest/building-spark.html
 
- # 1.6 maintenance branch with stability fixes on top of Spark 1.6.1
- git clone git://github.com/apache/spark.git -b branch-1.6
-```
+(Optional) Export the mvn path within spark source code  if not installed in your environment.
 
-### Configure Maven Path into Enviroment
-
-```shell
- export MAVEN_HOME=/app/compiled/spark/build/apache-maven-3.3.9
- export PATH=$PATH:$MAVEN_HOME/bin
-```
-
-###Compile Spark with Maven
-
-Apache Spark document link  http://spark.apache.org/docs/1.6.2/building-spark.html
+{% highlight bash linenos %}
+export MAVEN_HOME=/app/compiled/spark/build/apache-maven-3.3.9
+export PATH=$PATH:$MAVEN_HOME/bin
+{% endhighlight %}
 
 If using build/mvn with no MAVEN_OPTS set, the script will automate this for you.
-```shell
-export MAVEN_OPTS="-Xmx2g -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512m"`
-```
+
+{% highlight bash linenos %}
+export MAVEN_OPTS="-Xmx2g -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512m"
+{% endhighlight %}
 
 If you want to read from HDFS
-```shell
-build/mvn -Pyarn -Phadoop-2.4 -Dhadoop.version=2.4.0 -DskipTests clean package
-```
 
-### Fix the build error
+{% highlight bash linenos %}
+./build/mvn -Pyarn -Phadoop-2.6 -Dhadoop.version=2.6.0 -DskipTests clean package
+{% endhighlight %}
 
-To see the full stack trace of the errors, re-run Maven with the -e switch
-```shell
-build/mvn -Pyarn -Phadoop-2.4 -Dhadoop.version=2.4.0 -DskipTests clean package -e
-```
+Or using SBT to compile to support day-to-day development since it can provide much faster iterative compilation.
+
+{% highlight bash linenos %}
+./build/sbt -Pyarn -Phadoop-2.6 -Dhadoop.version=2.6.0 -DskipTests clean package
+{% endhighlight %}
+
+**Fix the build error**
 
 The following  issue gone after reboot the machine
-```shell
- [error] Required file not found: sbt-interface.jar
- [error] See zinc -help for information about locating necessary files
-```
 
+{% highlight bash linenos %}
+[error] Required file not found: sbt-interface.jar
+[error] See zinc -help for information about locating necessary files
+{% endhighlight %}
 
-### Build a Runnable Distribution
-```shell
-./make-distribution.sh --name 2.4.0 --tgz -Phadoop-2.4
-```
+### Step 3: Build a Runnable Distribution
 
+{% highlight bash linenos %}
+./make-distribution.sh --name 2.6.0 --tgz -Phadoop-2.6
+{% endhighlight %}
