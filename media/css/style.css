@@ -21,7 +21,7 @@ margin-right:auto;
 a{color:#dd0000;text-decoration:none;}
 a:hover{color:#333333;text-decoration:underline;}
 hr{margin:.7em 0;border-top:1px dashed #d0d0d0;border-bottom:1px dashed #f9f9f9;}
-p{padding:9px 0 0 0;margin:0;}
+p{padding:5px 0;margin:0;}
 li{padding: .2em 2em;}
 ol{list-style-position:inside;padding: .3em 0;margin:0;}
 ul{list-style-position:inside;padding: .3em 0;margin:0;}
@@ -33,7 +33,7 @@ pre code{font-size:13px;line-height:1.6;display:block;overflow:auto;background: 
 blockquote{display:block;text-align:justify;border: rgb(226, 222, 222);border-style: solid;border-width:1px;border-radius: 10px;}
 blockquote{margin:1em 0em;padding-left:1.5em;}
 blockquote p{margin:0;padding:.5em 0;}
-table { border-collapse:collapse; border-radius:10px; margin: 9px 0 0 0;}
+table { border-collapse:collapse; border-radius:10px; margin: 5px 0;}
 td, th { padding:5px 10px; border:1px solid #886; background:#efefef; }
 #container{width:850px;margin:2em auto;display:block;padding:0 2em;}
 .content{font-size:14px;line-height:22px;}
@@ -59,10 +59,10 @@ nav a:hover{background-color:#ff0000;text-decoration:none;color:#f9f9f9;-webkit-
 .post{padding:.5em 0em;}
 .post ul{padding:.5em 0em;}
 .post .listing2{padding:.5em 0em;border-style:none;}
-h1{font-family:"Microsoft YaHei","Hiragino Sans GB",sans-serif;font-size:20px;color:#000;padding: .5em 0 0 0;margin:5px 0 0 0}
-h2{font-family:"Microsoft YaHei","Hiragino Sans GB",sans-serif;font-size:18px;color:#111;padding: .5em 0 0 0;margin:5px 0 0 0}
-h3{font-family:"Microsoft YaHei","Hiragino Sans GB",sans-serif;font-size:16px;color:#222;padding: .5em 0 0 0;margin:5px 0 0 0}
-h4{font-family:"Microsoft YaHei","Hiragino Sans GB",sans-serif;font-size:14px;color:#333;padding: .5em 0 0 0;margin:5px 0 0 0}
+h1{font-family:"Microsoft YaHei","Hiragino Sans GB",sans-serif;font-size:20px;color:#000;padding:5px 0;margin:10px 0 0 0}
+h2{font-family:"Microsoft YaHei","Hiragino Sans GB",sans-serif;font-size:18px;color:#111;padding:5px 0;margin:10px 0 0 0}
+h3{font-family:"Microsoft YaHei","Hiragino Sans GB",sans-serif;font-size:16px;color:#222;padding:5px 0;margin:10px 0 0 0}
+h4{font-family:"Microsoft YaHei","Hiragino Sans GB",sans-serif;font-size:14px;color:#333;padding:5px 0;margin:10px 0 0 0}
 pre,code{font-family:Menlo,"Andale Mono",Consolas,"Courier New",Monaco,monospace;font-size:13px;}
 code{background-color:rgba(208, 208, 208, 0.29);}
 embed,object,iframe{display:block;margin:4px auto;}
@@ -143,7 +143,7 @@ background: #83BF73;
 
 figure {
 padding:0 0;
-margin: 9px 0 0 0;
+margin: 5px 0;
 border: 1px dashed #BBB;
 background: #eeeeee;
 }
