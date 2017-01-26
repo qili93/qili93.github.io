@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Debug Spark source code by using IntelliJ IDEA CE
+title: Debug Spark Source Code in Local Mode
 categories:  Spark
 tags: Spark
 
@@ -44,12 +44,22 @@ Refer to [Apache Spark源码走读之18 -- 使用Intellij idea调试Spark源码]
 
 **Step 2:** try `Run -> Run GroupByTest` to ensure the sample can run successfully, and then set a breakpoint and got to `Run -> Debug GroupByTest` to debug Spark sourcec code in local mode.
 
+![idea-debug-groupbytest](../images/idea-debug-groupbytest.png)
 
+### Fix build error - SBT
 
-### Fix build error
+Some wried build errors gone after rebuild project by SBT in command line and re-import the project into IDEA.
 
-`Exception in thread "main" java.lang.NoClassDefFoundError: scala/collection/Seq`: 
+#### Error 1 `EventBatch is already defined as object EventBatch` 
 
+Caused by the src and its sub-folder are marked as source code. Solution: remove `src_managed/main/compiled_avro` that was in conflict with `src_managed/main` in the Module settings because of an [sbt-idea bug](https://github.com/mpeltonen/sbt-idea/issues/310). 
 
+![idea-fix-build-error-1](../images/idea-fix-build-error-1.png)
 
-Refer to http://blog.csdn.net/javastart/article/details/43372977
+#### Error 2 `SqlBaseParser is not a member of package org.apache.spark.sql.catalyst.parser` 
+
+1. Compile spark source code by SBT via command line and it will generated the source code files/classes which is required; 
+2. Add the generated-sourcec `$SPARK_HOME/sql/catalyst/target/generated-sources/antlr3/org/apache/spark/sql/catalyst/parser` as sourcec directory; some of the generated classes like `SparkSqlLexer.java` is there; 
+3. Open Module Settings. Click on `spark-catalyst` module. Go to Source tab in the right. Make `target/generated-source` as a source folder. 
+
+![idea-fix-build-error-2](../images/idea-fix-build-error-2.png)
