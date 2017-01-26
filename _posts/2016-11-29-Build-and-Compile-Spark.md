@@ -7,7 +7,7 @@ tags: Spark
 
 ### Step 1: Download Spark source code from git
 
-Download Link: http://spark.apache.org/downloads.html
+Download Link of [Apache Spark](http://spark.apache.org/downloads.html)
 
 *Note: Starting version 2.0, Spark is built with Scala 2.11 and SBT 0.13.11 by default.*
 
@@ -21,7 +21,7 @@ git clone git://github.com/apache/spark.git -b branch-2.1
 
 ### Step 2: Configure Maven and Compile
 
-Apache Spark document link http://spark.apache.org/docs/latest/building-spark.html
+Refer to [Building Apache Spark](http://spark.apache.org/docs/latest/building-spark.html) for more details.
 
 (Optional) Export the mvn path within spark source code  if not installed in your environment.
 
@@ -60,5 +60,5 @@ The following  issue gone after reboot the machine
 ### Step 3: Build a Runnable Distribution
 
 {% highlight bash linenos %}
-./make-distribution.sh --name 2.6.0 --tgz -Phadoop-2.6
+./dev/make-distribution.sh --name custom-spark --tgz -Phadoop-2.6
 {% endhighlight %}

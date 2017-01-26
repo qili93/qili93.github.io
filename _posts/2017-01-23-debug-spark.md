@@ -2,7 +2,7 @@
 layout: post
 title: Debug Spark source code by using IntelliJ IDEA CE
 categories:  Spark
-tags: Spark idea
+tags: Spark
 
 ---
 
@@ -32,8 +32,24 @@ To create a Spark project for IntelliJ:
 - In the Import wizard, it’s fine to leave settings at their default. However it is usually useful to enable “Import Maven projects automatically”, since changes to the project structure will automatically update the IntelliJ project.
 - As documented in [Building Spark](http://spark.apache.org/docs/latest/building-spark.html), some build configurations require specific profiles to be enabled. The same profiles that are enabled with `-P[profile name]` above may be enabled on the Profiles screen in the Import wizard. For example, if developing for Hadoop 2.4 with YARN support, enable profiles yarn and hadoop-2.4. These selections can be changed later by accessing the “Maven Projects” tool window from the View menu, and expanding the Profiles section.
 
+*Note: Starting version 2.0, Spark is built with Scala 2.11 by default. Configure the Scala version in IDEA: `open File -> Project Structure -> Global Libraries` add `scala SDK 2.11`*
+
+### Debug Spark source code in local mode
+
+Refer to [Apache Spark源码走读之18 -- 使用Intellij idea调试Spark源码](http://www.cnblogs.com/hseagle/p/3850841.html) for more detailed info.
+
+**Step 1:** go to `Build -> Build Projec` and wait serveral minutes to compile the Spark project. Open the `org.apache.spark.examples.GroupByTest` and go to `Run -> Edit Configurations`, edit the configuration as following, and notice the configurations of Main class, VM options, Working directory and Use classpath of module.
+
+![idea-run-config](../images/idea-run-config.png)
+
+**Step 2:** try `Run -> Run GroupByTest` to ensure the sample can run successfully, and then set a breakpoint and got to `Run -> Debug GroupByTest` to debug Spark sourcec code in local mode.
 
 
-## Walkthrough Source Code in Remote Mode
+
+### Fix build error
+
+`Exception in thread "main" java.lang.NoClassDefFoundError: scala/collection/Seq`: 
+
+
 
 Refer to http://blog.csdn.net/javastart/article/details/43372977

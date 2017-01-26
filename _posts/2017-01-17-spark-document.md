@@ -2,7 +2,7 @@
 layout: post
 title: Spark相关文章
 categories:  剪贴板
-tags: Spark
+tags: Spark To-do-list
 ---
 
 本文整理了Spark相关的一些文章和链接，便于查询。持续更新中...
@@ -13,7 +13,7 @@ tags: Spark
 - [Spark架构分析](#spark%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90)
 - [Spark源码分析](#spark%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90)
 - [Spark参数配置](#spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE)
-- [Spark Summit](#spark-summit) 
+- [Spark Summit](#spark-summit)
 - [Spark Blogs](#spark-blogs)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -23,8 +23,13 @@ tags: Spark
 [Spark Internals](https://github.com/JerryLead/SparkInternals/tree/master/markdown)
 主要讨论 Apache Spark 的设计与实现，重点关注其设计思想、运行原理、实现架构及性能调优，附带讨论与 Hadoop MapReduce 在设计与实现上的区别。
 
-
 ### Spark源码分析
+
+[Mastering Apache Spark 2.0](https://jaceklaskowski.gitbooks.io/mastering-apache-spark/)
+源自Spark community developer list, 详细介绍了Spark 2.0的相关内容。
+
+[Spark Scala Tutorial](https://github.com/deanwampler/spark-scala-tutorial)
+Step by step tutorial of programing Spark applications in scala and running in local mode.
 
 [Spark源码分析之-Storage模块](http://jerryshao.me/architecture/2013/10/08/spark-storage-module-analysis/)
 该作者博客中共有deploy, scheduler和storage三个模块的源码分析，非常详尽。
@@ -42,5 +47,5 @@ tags: Spark
 Agenda and videos of Spark Summit in June, 2016
 
 ### Spark Blogs
-[Apache Spark Future](https://0x0fff.com/apache-spark-future/) 
+[Apache Spark Future](https://0x0fff.com/apache-spark-future/)
 根据Spark Survey 和 Spark 2.0的进展对Spark未来的发展方向进行分析。
