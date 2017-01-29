@@ -6,6 +6,8 @@ tags: Spark
 
 ---
 
+The Spark version used here is Apache Spark 2.1.0, Scala 2.11.8 and SBT 0.13.12 on MacBook Pro.
+
 ### Prerequisites
 
 Compile and build Apache Spark source code by maven or SBT before import project into IDEA. Refer to the blog of [Compile Spark and Build Spark Package](https://qili93.github.io/Build-and-Compile-Spark/) for detailed steps.
