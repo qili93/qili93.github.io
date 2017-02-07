@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Spark相关文章
-categories:  剪贴板
+categories:  Spark
 tags: Spark To-do-list
 ---
 
@@ -10,6 +10,8 @@ tags: Spark To-do-list
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
+- [Spark to-do list](#spark-to-do-list)
 - [Spark架构分析](#spark%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90)
 - [Spark源码分析](#spark%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90)
 - [Spark参数配置](#spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE)
@@ -17,6 +19,11 @@ tags: Spark To-do-list
 - [Spark Blogs](#spark-blogs)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+### Spark to-do list
+
+1. Spark SQL & Hive: https://jaceklaskowski.gitbooks.io/mastering-apache-spark/spark-sql-sparksession.html
+2. ​
 
 ### Spark架构分析
 
