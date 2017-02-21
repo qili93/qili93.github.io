@@ -53,6 +53,9 @@ Step by step tutorial of programing Spark applications in scala and running in l
 [Spark Summit 2016](https://spark-summit.org/2016/schedule/)
 Agenda and videos of Spark Summit in June, 2016
 
+[Spark Summit East 2017](https://spark-summit.org/east-2017/schedule/)
+Agenda and videos of Spark Summit East 2017 in Feb, 2017
+
 ### Spark Blogs
 [Apache Spark Future](https://0x0fff.com/apache-spark-future/)
 根据Spark Survey 和 Spark 2.0的进展对Spark未来的发展方向进行分析。
