@@ -17,6 +17,7 @@ tags: Spark To-do-list
 - [Spark参数配置](#spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE)
 - [Spark Summit](#spark-summit)
 - [Spark Blogs](#spark-blogs)
+- [Spark 论文](#spark-%E8%AE%BA%E6%96%87)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -59,3 +60,7 @@ Agenda and videos of Spark Summit East 2017 in Feb, 2017
 ### Spark Blogs
 [Apache Spark Future](https://0x0fff.com/apache-spark-future/)
 根据Spark Survey 和 Spark 2.0的进展对Spark未来的发展方向进行分析。
+
+### Spark 论文
+
+[Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing](http://www-bcf.usc.edu/~minlanyu/teach/csci599-fall12/papers/nsdi_spark.pdf)

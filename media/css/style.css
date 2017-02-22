@@ -31,7 +31,7 @@ ol ul, ul ol, ul ul, ol ol {margin-left:1.2em;}
 pre{margin:.5em 0;}
 pre code{font-size:12px;line-height:1.6;display:block;overflow:auto;background: #eeeeee;padding: 0 0 0 .7em;}
 blockquote{display:block;text-align:justify;border: rgb(226, 222, 222);border-style: solid;border-width:1px;border-radius: 10px;}
-blockquote{margin:1em 0em;padding-left:1.5em;}
+blockquote{margin:.5em 0em;padding:0 1.5em;}
 blockquote p{margin:0;padding:.5em 0;}
 table {border-collapse:collapse; border-radius:10px; margin: 5px 0;}
 td, th {padding:5px 10px; border:1px solid #886; background:#efefef; }
