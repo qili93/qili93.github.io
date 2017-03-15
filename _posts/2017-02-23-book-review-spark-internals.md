@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 《Soft Skills - the software developer's life manual》
+title: 《Spark Internals》- Chapter 1
 categories:  读书笔记
-tags: 读书笔记
+tags: Spark
 ---
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -10,8 +10,11 @@ tags: 读书笔记
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+《Spark Internal》is available on [GitBook](https://spark-internals.books.yourtion.com/)
 
-### Chapter 3: 走进Java
+
+
+### Chapter 1: 走进Java
 
 #### Java技术体系
 

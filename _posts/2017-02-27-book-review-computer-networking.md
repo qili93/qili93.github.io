@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 《Soft Skills - the software developer's life manual》
+title: 《Computer Networking - A Top-Down Approach》- Chapter 1
 categories:  读书笔记
 tags: 读书笔记
 ---
@@ -10,8 +10,9 @@ tags: 读书笔记
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+Videos are available here: [計算機網路概論](http://ocw.nthu.edu.tw/ocw/index.php?page=course&cid=13)
 
-### Chapter 3: 走进Java
+### Chapter 1: 走进Java
 
 #### Java技术体系
 

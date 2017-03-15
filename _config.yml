@@ -1,8 +1,8 @@
-permalink: /:title/
+permalink: /:categories/:title
 url: https://qili93.github.io/
 #highlighter: pygments
 highlighter: rouge
-gems: [jekyll-paginate]
+gems: [jekyll-paginate, jekyll-mermaid]
 paginate: 30
 paginate_path: "page:num"
 name: Qi Li
@@ -11,5 +11,7 @@ author: qili93
 email: qili93@qq.com
 hub: qili93
 markdown: kramdown
+mermaid:
+  src: '/bower_components/mermaid/dist/mermaid.js'
 # pygments: true
 # highlighter: pygments

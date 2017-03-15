@@ -2,7 +2,7 @@
 layout: post
 title: 《Programing in Scala》Chapter 1-3 introduction and simple steps in scala
 categories:  读书笔记
-tags: 读书笔记
+tags: Scala
 ---
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
