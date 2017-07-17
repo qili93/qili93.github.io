@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 常用Git命令清单
+title: （转载）常用Git命令清单
 categories:  剪贴板
 tags: Git
 ---
