@@ -18,6 +18,7 @@ passwd hadoop
 {% endhighlight %}
 
 Check the group and user are correctly created
+
 {% highlight bash linenos %}
 tail /etc/group
 tail /etc/passwd
@@ -26,11 +27,13 @@ id hadoop
 {% endhighlight %}
 
 Edit the home directroy of user
+
 {% highlight bash linenos %}
 usermod -d /myhome/hadoop hadoop
 {% endhighlight %}
 
 Prepare the app and upload directories for hadoop
+
 {% highlight bash linenos %}
 mkdir -p /app/hadoop
 chown -R hadoop:hadoop /app/hadoop
@@ -39,11 +42,13 @@ chown -R hadoop:hadoop /myhome/hadoop/upload
 {% endhighlight %}
 
 Grant sudo permission to hadoop
+
 {% highlight bash linenos %}
 chmod u+w /etc/sudoers
 {% endhighlight %}
 
 Edit /etc/sudoers to add the following lines
+
 {% highlight bash linenos %}
 hadoop  ALL=(ALL)       NOPASSWD: ALL
 {% endhighlight %}
@@ -61,6 +66,7 @@ Add the following environment under `/etc/profile`
 {% endhighlight %}
 
 Verify after re-logon
+
 {% highlight bash linenos %}
  java -version
 {% endhighlight %}
@@ -76,18 +82,21 @@ tar -zxvf scala-2.10.6.tgz -C /app
 {% endhighlight %}
 
 Edit `/etc/profile` with SCALA configuration
+
 {% highlight bash linenos %}
 export SCALA_HOME=/app/scala-2.10.6
 export PATH=$PATH:${SCALA_HOME}/bin
 {% endhighlight %}
 
 Verify after re-logon
+
 {% highlight bash linenos %}
 scala -version
 {% endhighlight %}
 
 
 ### Configure SSH logon without password
+
 {% highlight bash linenos %}
 ssh-keygen -t rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_name
@@ -133,6 +142,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_name
 {% endhighlight %}
 
 Change the file permission after copy done
+
 {% highlight bash linenos %}
 chown hadoop:hadoop /myhome/hadoop/.*
 {% endhighlight %}
