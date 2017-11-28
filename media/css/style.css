@@ -58,8 +58,9 @@ div.code div.highlight {
 }
 
 pre  {
-  padding: 5px;
-  margin: 0;
+  padding: 3px;
+  margin-top:0;
+  margin-bottom:0;
   font-size: 100%;
   color: inherit;
   text-align: left;
@@ -73,13 +74,22 @@ pre code{
     border: 1px dashed #BBB;
     background: #eeeeee;
     padding:0;
-    margin: 0;
+    margin-bottom:1em;
+}
+
+pre code table{
+border: 0;
+border-collapse:collapse; 
 }
 
 figure {
 padding:0;
 margin:0;
 }
+
+table {border-collapse:separate; border-spacing: 10px;border-radius:10px; margin: 5px 0;border: 1px dashed #BBB;background: #eeeeee;}
+table th {white-space: nowrap;} /*表头内容强制在一行显示*/
+table td:nth-child(1) {white-space: nowrap; } /*首列不换行*/
 
 #wrapper {
     margin:0 auto;
