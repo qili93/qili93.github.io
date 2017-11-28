@@ -1,11 +1,9 @@
 ---
 layout: post
-title: Spark Fundamentals 1 - Lab 2a. Scala - Working with RDD operations
+title: Spark Fundamentals 1 - Introduction to Spark - Lab 2a
 categories: Spark
 tags: Spark
 ---
-
-# Spark Fundamentals 1 - Introduction to Spark 
 
 ## Lab 2a. Scala - Working with RDD operations
 
@@ -17,6 +15,8 @@ Related courses can be found in the following learning paths:
 
 - [Spark Fundamentals path](https://cognitiveclass.ai/learn/spark/)
 - [Big Data Fundamentals path](https://cognitiveclass.ai/learn/big-data/)
+
+<!-- excerpt -->
 
 ### Starting with Spark using Scala
 

@@ -1,7 +1,7 @@
-permalink: /:title/
+permalink: pretty
 url: https://qili93.github.io/
+baseurl: /
 #highlighter: pygments
-highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 30
 paginate_path: "page:num"
@@ -10,6 +10,29 @@ description: Qi Li's Blog
 author: qili93
 email: qili93@qq.com
 hub: qili93
+
+# show the post in home before excerpt
+excerpt_separator: "<!-- excerpt -->"
+
+# highlight the code in markdown
 markdown: kramdown
-# pygments: true
-# highlighter: pygments
+# !github-pages! mandatory › https://help.github.com/articles/using-jekyll-with-pages/#configuration-settings-you-cannot-change
+# Since Jekyll 3 the default highlighter is Rouge (replaced Pygments.rb in v44)
+highlighter: rouge
+
+# More › http://kramdown.gettalong.org/quickref.html
+# Options › http://kramdown.gettalong.org/options.html
+kramdown:
+  input:          GFM
+  highlighter: rouge
+  # https://github.com/jekyll/jekyll/pull/4090
+  syntax_highlighter: rouge
+
+  # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
+  # span, block element options fall back to global
+  syntax_highlighter_opts:
+    # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: 'highlight'
+    table_class: 'rouge-table'
+    line_numbers: true
+    wrap: true

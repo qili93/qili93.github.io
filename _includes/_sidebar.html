@@ -1,0 +1,44 @@
+<div id="sidebar">
+  <div id="logo">
+      <h1>
+        <a href="{{ site.baseurl }}"> Qi Li Blog</a>
+      </h1>
+  </div>
+  <div> 
+    <p> My name is Qi Li, welcome to my blog :) <br/>Project Managment, Spectrum Conductor with Spark <br/>
+Software Defined Infrastructure, IBM China Systems Lab. </p>
+  </div>
+  <div id="menu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="{{ site.baseurl }}about/index.html">About</a></li>
+      <li><a href="{{ site.baseurl }}categories/index.html">Categories</a></li>
+    </ul>
+  </div>
+  <ul>
+    <li>
+    <h2>Recent Posts</h2>
+    <ul>
+      {% for post in site.posts limit:5 %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+    </li>
+    <li>
+    <h2>Archive</h2>
+    <ul>
+      {% assign counter = 0 %}
+      {% for post in site.posts %}
+        {% assign thisyear = post.date | date: "%Y" %}
+        {% assign prevyear = post.previous.date | date: "%Y" %}
+        {% assign counter = counter | plus: 1 %}
+        {% if thisyear != prevyear %}
+          <li><a href="{{ site.baseurl }}archive/{{ post.date | date:"%Y" }}">{{ thisyear }} ({{ counter }})</a></li>
+          {% assign counter = 0 %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+    </li>
+  </ul>
+  <div><p><br/>&copy; 2016 - {{ site.time | date: '%Y' }}. All rights reserved.</p></div>
+</div>

@@ -1,11 +1,9 @@
 ---
 layout: post
-title: Spark Fundamentals 1 - Lab 2c. Python - Working with Dataframes
+title: Spark Fundamentals 1 - Introduction to Spark - Lab 2c
 categories: Spark
 tags: Spark
 ---
-
-# Spark Fundamentals 1 - Introduction to Spark
 
 ## Lab 2c. Python - Working with Dataframes
 
@@ -19,6 +17,8 @@ Related courses can be found in the following learning paths:
 - [Big Data Fundamentals path](https://cognitiveclass.ai/learn/big-data/)
 
 A DataFrame is two-dimensional. Columns can be of different data types. DataFrames accept many data inputs including series and other DataFrames. You can pass indexes (row labels) and columns (column labels). Indexes can be numbers, dates, or strings/tuples.
+
+<!-- excerpt -->
 
 Pandas is a library used for data manipulation and analysis. Pandas offers data structures and operations for creating and manipulating Data Series and DataFrame objects. Data can be imported from various data sources, e.g., Numpy arrays, Python dictionaries and CSV files. Pandas allows you to manipulate, organize and display the data.
 
@@ -37,7 +37,7 @@ To create a Spark DataFrame we load an external DataFrame, called `mtcars`. This
 
 In [1]:
 
-{% highlight python linenos %}
+{% highlight pyhon linenos %}
 import pandas as pd
 mtcars = pd.read_csv('https://ibm.box.com/shared/static/f1dhhjnzjwxmy2c1ys2whvrgz05d1pui.csv')
 {% endhighlight %}
