@@ -2,7 +2,7 @@ permalink: pretty
 url: https://qili93.github.io/
 baseurl: /
 #highlighter: pygments
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 paginate: 30
 paginate_path: "page:num"
 name: Qi Li
@@ -34,5 +34,9 @@ kramdown:
     # Rouge Options › https://github.com/jneen/rouge#full-options
     css_class: 'highlight'
     table_class: 'rouge-table'
-    line_numbers: true
     wrap: true
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1

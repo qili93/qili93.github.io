@@ -58,22 +58,27 @@ div.code div.highlight {
 }
 
 pre  {
-  padding: 13px;
+  padding: 5px;
   margin: 0;
   font-size: 100%;
   color: inherit;
   text-align: left;
-  white-space: pre-wrap;
-  word-wrap: break-word;
 }
 
-pre code{font-size:12px;line-height:1.6;display:block;overflow:auto;background: #eeeeee;padding: 0 0 0 .7em;}
+pre code{
+    font-size:12px;
+    line-height:1.6;
+    display:block;
+    overflow:auto;
+    border: 1px dashed #BBB;
+    background: #eeeeee;
+    padding:0;
+    margin: 0;
+}
 
 figure {
-padding:0 0;
-margin: 5px 0;
-border: 1px dashed #BBB;
-background: #eeeeee;
+padding:0;
+margin:0;
 }
 
 #wrapper {
