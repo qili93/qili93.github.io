@@ -11,8 +11,8 @@ Software Defined Infrastructure, IBM China Systems Lab. </p>
   <div id="menu">
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="{{ site.baseurl }}about/index.html">About</a></li>
-      <li><a href="{{ site.baseurl }}categories/index.html">Categories</a></li>
+      <li><a href="/about/index.html">About</a></li>
+      <li><a href="/ategories/index.html">Categories</a></li>
     </ul>
   </div>
   <ul>
@@ -33,7 +33,7 @@ Software Defined Infrastructure, IBM China Systems Lab. </p>
         {% assign prevyear = post.previous.date | date: "%Y" %}
         {% assign counter = counter | plus: 1 %}
         {% if thisyear != prevyear %}
-          <li><a href="{{ site.baseurl }}archive/{{ post.date | date:"%Y" }}">{{ thisyear }} ({{ counter }})</a></li>
+          <li><a href="/archive/{{ post.date | date:"%Y" }}">{{ thisyear }} ({{ counter }})</a></li>
           {% assign counter = 0 %}
         {% endif %}
       {% endfor %}
