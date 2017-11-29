@@ -90,6 +90,7 @@ margin:0;
 table {border-collapse:separate; border-spacing: 10px;border-radius:10px; margin: 5px 0;border: 1px dashed #BBB;background: #eeeeee;}
 table th {white-space: nowrap;} /*表头内容强制在一行显示*/
 table td:nth-child(1) {white-space: nowrap; } /*首列不换行*/
+img{max-width:640px;display:block;margin:4px 4em;-webkit-box-shadow:#999 1px 1px 4px;-moz-box-shadow:#999 1px 1px 4px;box-shadow:#999 1px 1px 4px;}
 
 #wrapper {
     margin:0 auto;

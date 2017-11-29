@@ -24,7 +24,7 @@ tags: Kerberos
 
 Kerberos起源于希腊神话，是一支守护着冥界长着3个头颅的神犬，Kerberos的3个头颅分别代表：KDC(Kerberos Distribution Center)，Client和Server。KDC作为domain controller，主要提供两种服务： Authentication Service (AS) 和 Ticket-Granting Service (TGS)。
 
-![img](../images/kerberos_ticket_exchange.gif)
+![img](/images/kerberos_ticket_exchange.gif)
 
 KDC在整个Kerberos Authentication中作为Client和Server共同信任的第三方起着重要的作用，而Kerberos的认证过程就是通过这3方协作完成。对于一个Windows Domain来说，Domain Controller扮演着KDC的角色。KDC维护着一个存储着该Domain中所有帐户的Account Database（一般地，这个Account Database由AD来维护），也就是说，他知道属于每个Account的名称和派生于该Account Password的Master Key。
 
@@ -34,13 +34,13 @@ KDC在整个Kerberos Authentication中作为Client和Server共同信任的第三
 2. Ticket Granting Service Exchange (TGS Exchange)
 3. Client/Server Exchange (CS Exchange)
 
-![img](../images/kerberos_3_sub_protocol.gif)
+![img](/images/kerberos_3_sub_protocol.gif)
 
 ### 1. Authentication Service Exchange
 
 通过这个Sub-protocol，KDC中的Authentication Service实现对Client身份的确认，并颁发给该Client一个TGT。具体过程如下：
 
-![img](../images/kerberos_authentication_service.jpeg)
+![img](/images/kerberos_authentication_service.jpeg)
 
 Client向KDC的Authentication Service发送Authentication Service Request（KRB_AS_REQ）, 为了确保KRB_AS_REQ仅限于自己和KDC知道，Client使用自己的Master Key对KRB_AS_REQ的主体部分进行加密（KDC可以通过Domain 的Account Database获得该Client的Master Key）。KRB_AS_REQ的大体包含以下的内容：
 
@@ -58,7 +58,7 @@ Client通过自己的Master Key对第一部分解密获得Session Key（SKDC-Cli
 
 ### 2. Ticket Granting Service Exchange
 
-![img](../images/kerberos_ticket_granting_service.jpeg)
+![img](/images/kerberos_ticket_granting_service.jpeg)
 
 TGS（Ticket Granting Service）Exchange通过Client向KDC中的TGS（Ticket Granting Service）发送Ticket Granting Service Request（KRB_TGS_REQ）开始。KRB_TGS_REQ大体包含以下的内容：
 
@@ -81,7 +81,7 @@ Client收到KRB_TGS_REP，使用Logon Session Key（SKDC-Client）解密第一�
 
 ### 3. Client/Server Exchange
 
-![img](../images/kerberos_client_server.jpeg)
+![img](/images/kerberos_client_server.jpeg)
 
 Client通过TGS Exchange获得Client和Server的Session Key（SServer-Client），随后创建用于证明自己就是Ticket的真正所有者的Authenticator，并使用Session Key（SServer-Client）进行加密。最后将这个被加密过的Authenticator和Ticket作为Application Service Request（KRB_AP_REQ）发送给Server。除了上述两项内容之外，KRB_AP_REQ还包含一个Flag用于表示Client是否需要进行双向验证（Mutual Authentication）。
 
@@ -113,17 +113,17 @@ Kerberos一个重要的优势在于它能够提供双向认证：不但Server可
 
 基于3个Sub-protocol的Kerberos作为一种Network Authentication是具有它自己的局限和安全隐患的。**以某个Entity的Long-term Key加密的数据不应该在网络中传递**。原因很简单，所有的加密算法都不能保证100%的安全，对加密的数据进行解密只是一个时间的过程，最大限度地提供安全保障的做法就是：使用一个Short-term key（Session Key）代替Long-term Key对数据进行加密，使得恶意用户对其解密获得加密的Key时，该Key早已失效。但是对于3个Sub-Protocol的C/S Exchange，Client携带的Ticket却是被Server Master Key进行加密的，这显现不符合我们提出的原则，降低Server的安全系数。
 
-![img](../images/kerberos_3_sub_protocol_detail.jpeg)
+![img](/images/kerberos_3_sub_protocol_detail.jpeg)
 
 所以我们必须寻求一种解决方案来解决上面的问题。这个解决方案很明显：就是采用一个Short-term的Session Key，而不是Server Master Key对Ticket进行加密。这就是我们今天要介绍的Kerberos的第4个Sub-protocol：User2User Protocol。我们知道，既然是Session Key，仅必然涉及到两方，而在Kerberos整个认证过程涉及到3方：Client、Server和KDC，所以用于加密Ticket的只可能是Server和KDC之间的Session Key（SKDC-Server）。
 
 我们知道Client通过在AS Exchange阶段获得的TGT从KDC那么获得访问Server的Ticket。原来的Ticket是通过Server的Master Key进行加密的，而这个Master Key可以通过Account Database获得。但是现在KDC需要使用Server和KDC之间的SKDC-Server进行加密，而KDC是不会维护这个Session Key，所以这个Session Key只能靠申请Ticket的Client提供。所以在AS Exchange和TGS Exchange之间，Client还得对Server进行请求已获得Server和KDC之间的Session Key（SKDC-Server）。而对于Server来说，它可以像Client一样通过AS Exchange获得他和KDC之间的Session Key（SKDC-Server）和一个封装了这个Session Key并被KDC的Master Key进行加密的TGT，一旦获得这个TGT，Server会缓存它，以待Client对它的请求。我们现在来详细地讨论这一过程。
 
-![img](../images/kerberos_4_sub_protocol.gif)
+![img](/images/kerberos_4_sub_protocol.gif)
 
 上图基本上翻译了基于User2User的认证过程，这个过程由4个步骤组成。我们发现较之我在上面一节介绍的基于传统3个Sub-protocol的认证过程，这次对了第2部。我们从头到尾简单地过一遍：
 
-![img](../images/kerberos_4_sub_protocol_detail.png)
+![img](/images/kerberos_4_sub_protocol_detail.png)
 
 1. AS Exchange：Client通过此过程获得了属于自己的TGT，有了此TGT，Client可凭此向KDC申请用于访问某个Server的Ticket。
 2. 这一步的主要任务是获得封装了Server和KDC的Session Key（SKDC-Server）的属于Server的TGT。如果该TGT存在于Server的缓存中，则Server会直接将其返回给Client。否则通过AS Exchange从KDC获取。
