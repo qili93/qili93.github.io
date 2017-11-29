@@ -11,7 +11,7 @@ Refer to http://spark.apache.org/docs/latest/submitting-applications.html
 
 Once a user application is bundled, it can be launched using the `bin/spark-submit` script.This script takes care of setting up the classpath with Spark and itsdependencies, and can support different cluster managers and deploy modes that Spark supports:
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ./bin/spark-submit \
   --class <main-class> \
   --master <master-url> \
@@ -52,7 +52,7 @@ The master URL passed to Spark can be in one of the following formats:
 
 Run the following commands is  running succesffully in both local machine or cluster node.
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 # Local Mode
 ./spark-shell
 
@@ -68,7 +68,7 @@ Run the following commands is  running succesffully in both local machine or clu
 ## Spark Local Mode
 
 Run the following command in the local laptop/cluster node
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ./spark-submit \
  --class main.scala.internals.GroupByKeyTest \
  --master local[2] \
@@ -80,7 +80,7 @@ Run the following command in the local laptop/cluster node
 ## Spark Client Mode
 
 Run the following command in the local laptop/cluster node
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ./spark-submit \
 --master spark://9.111.159.156:7077 \
 --class org.apache.spark.examples.GroupByTest \
@@ -99,7 +99,7 @@ Run the following command in the local laptop/cluster node
 
 Run the following command in the local laptop/cluster node
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ./spark-submit \
 --master spark://9.111.159.156:7077 \
 --class org.apache.spark.examples.GroupByTest \

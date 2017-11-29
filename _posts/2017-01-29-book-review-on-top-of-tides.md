@@ -1,6 +1,6 @@
 ---
 layout: post
-title: （TBD）《浪潮之巅》读后感
+title: 阅读笔记 --《浪潮之巅》
 categories:  读书笔记
 tags: 读书笔记
 ---

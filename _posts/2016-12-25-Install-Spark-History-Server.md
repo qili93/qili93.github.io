@@ -33,7 +33,7 @@ tags: Spark
 
 Download HDFS package and decompress from http://hadoop.apache.org/releases.html
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 wget http://apache.fayea.com/hadoop/common/hadoop-2.6.5/hadoop-2.6.5.tar.gz
 tar -zxvf hadoop-2.6.5.tar.gz
 chown -R hadoop:hadoop hadoop-2.6.5
@@ -41,7 +41,7 @@ chown -R hadoop:hadoop hadoop-2.6.5
 
 Create directories
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 cd hadoop-2.6.5/
 mkdir tmp
 mkdir name
@@ -55,14 +55,14 @@ Edit the configuration files of Hadoop under `./hadoop-2.6.5/etc/hadoop`
 
 ### Configure /etc/profile
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 export HADOOP_HOME=/myhome/hadoop/hadoop-2.6.5
 export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
 {% endhighlight %}
 
 ### Configure JAVA_HOME in hadoop-env.sh and yarn-env.sh
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 vim /myhome/hadoop/hadoop-2.6.5/etc/hadoop/hadoop-env.sh
 vim /myhome/hadoop/hadoop-2.6.5/etc/hadoop/yarn-env.sh
 export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
@@ -179,7 +179,7 @@ export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
 
 ### Configure the ./hadoop-2.6.5/etc/hadoop/slaves
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 9.111.159.156
 9.111.159.163
 9.111.159.164
@@ -187,7 +187,7 @@ export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
 
 ### Distribute Hadoop dir into nodes
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 cd /myhome/hadoop
 scp -r hadoop-2.6.5/ hadoop@9.111.159.163://myhome/hadoop/
 scp -r hadoop-2.6.5/ hadoop@9.111.159.164://myhome/hadoop/
@@ -197,7 +197,7 @@ scp -r hadoop-2.6.5/ hadoop@9.111.159.164://myhome/hadoop/
 
 ### Format and start Namenode
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 cd /myhome/hadoop/hadoop-2.6.5
 ./bin/hdfs namenode -format
 cd /myhome/hadoop/hadoop-2.6.5/sbin
@@ -206,7 +206,7 @@ cd /myhome/hadoop/hadoop-2.6.5/sbin
 
 ### Verify the HDFS daemons
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 [hadoop@bjqilitst1 sbin]$ jps
 532 NameNode
 838 SecondaryNameNode
@@ -221,7 +221,7 @@ cd /myhome/hadoop/hadoop-2.6.5/sbin
 {% endhighlight %}
 
 ### Verify health by CLI
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 [hadoop@bjqilitst1 hadoop-2.6.5]$  ./bin/hdfs dfsadmin -report
 Configured Capacity: 91005493248 (84.76 GB)
 Present Capacity: 81165398016 (75.59 GB)
@@ -305,7 +305,7 @@ Once the Hadoop cluster is up and running check the web-ui of the components as 
 
 http://hadoop.apache.org/docs/r2.6.5/hadoop-project-dist/hadoop-common/FileSystemShell.html
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ./bin/hadoop fs -help
 hadoop fs -ls    /
 hadoop fs -ls -R   /
@@ -331,7 +331,7 @@ spark.history.fs.logDirectory    hdfs://9.111.159.156:9000/hadoop/logdir
 
 Start the Spark history server
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ./sbin/start-history-server.sh
 {% endhighlight %}
 

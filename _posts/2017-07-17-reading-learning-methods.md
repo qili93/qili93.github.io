@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 观“我们这一代人的学习方法”有感
+title: 观后感 -- 我们这一代人的学习方法
 categories: 读书笔记
 tags: 罗辑思维
 ---

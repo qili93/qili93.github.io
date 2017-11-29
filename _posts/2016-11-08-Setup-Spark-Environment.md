@@ -9,7 +9,7 @@ tags: Spark
 
 Execute the following commands
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 mkdir -p /myhome/hadoop
 groupadd -g 1000 hadoop
 useradd -u 2000 -g hadoop -d /myhome/hadoop hadoop
@@ -19,7 +19,7 @@ passwd hadoop
 
 Check the group and user are correctly created
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 tail /etc/group
 tail /etc/passwd
 groups hadoop
@@ -28,13 +28,13 @@ id hadoop
 
 Edit the home directroy of user
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 usermod -d /myhome/hadoop hadoop
 {% endhighlight %}
 
 Prepare the app and upload directories for hadoop
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 mkdir -p /app/hadoop
 chown -R hadoop:hadoop /app/hadoop
 mkdir /myhome/hadoop/upload
@@ -43,13 +43,13 @@ chown -R hadoop:hadoop /myhome/hadoop/upload
 
 Grant sudo permission to hadoop
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 chmod u+w /etc/sudoers
 {% endhighlight %}
 
 Edit /etc/sudoers to add the following lines
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 hadoop  ALL=(ALL)       NOPASSWD: ALL
 {% endhighlight %}
 
@@ -59,7 +59,7 @@ hadoop  ALL=(ALL)       NOPASSWD: ALL
 
 Add the following environment under `/etc/profile`
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
  export JAVA_HOME=/pcc/app/Linux_jdk1.7.0_x86_64
  export PATH=$JAVA_HOME/bin:$PATH
  export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
@@ -67,7 +67,7 @@ Add the following environment under `/etc/profile`
 
 Verify after re-logon
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
  java -version
 {% endhighlight %}
 
@@ -75,7 +75,7 @@ Verify after re-logon
 
 ### Install and config Scala
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz /myhome/hadoop/upload
 wget http://downloads.lightbend.com/scala/2.10.6/scala-2.10.6.tgz /myhome/hadoop/upload
 tar -zxvf scala-2.10.6.tgz -C /app
@@ -83,21 +83,21 @@ tar -zxvf scala-2.10.6.tgz -C /app
 
 Edit `/etc/profile` with SCALA configuration
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 export SCALA_HOME=/app/scala-2.10.6
 export PATH=$PATH:${SCALA_HOME}/bin
 {% endhighlight %}
 
 Verify after re-logon
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 scala -version
 {% endhighlight %}
 
 
 ### Configure SSH logon without password
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ssh-keygen -t rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_name
 {% endhighlight %}
@@ -106,7 +106,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_name
 
 ### Show [user@hostname ~]  when su user
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
  cp /root/.bashrc /myhome/hadoop/
  [hadoop@qilibjtst3 ~]$ cat .bashrc
  # .bashrc
@@ -124,7 +124,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_name
  fi
 {% endhighlight %}
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
  cp /root/.bash_profile /myhome/hadoop/
  [hadoop@qilibjtst3 ~]$ cat .bash_profile
  # .bash_profile
@@ -143,7 +143,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub user@server_name
 
 Change the file permission after copy done
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 chown hadoop:hadoop /myhome/hadoop/.*
 {% endhighlight %}
 

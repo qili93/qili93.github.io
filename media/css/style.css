@@ -22,23 +22,27 @@ h1 {
 h2 {
     font-size:1.6em;
     line-height:26px;
-    padding:0 0 13px;
+    padding:0;
+    margin: 13px 0 13px;
 }
 
 h3 {
     font-size:1.2em;
     line-height:26px;
-    padding:0 0 13px;
+    padding:0;
+    margin: 13px 0 13px;
 }
 
 p, ul, ol {
-    margin-top:0;
-    margin-bottom:1em;
+    margin-top:.5em;
+    margin-bottom:.5em;
     line-height:200%;
 }
 
 ul, ol {
 }
+
+ul ul { margin: 0; }
 
 a:link {
     text-decoration:none;
@@ -74,7 +78,7 @@ pre code{
     border: 1px dashed #BBB;
     background: #eeeeee;
     padding:0;
-    margin-bottom:1em;
+    margin:0;
 }
 
 pre code table{
@@ -83,14 +87,18 @@ border-collapse:collapse;
 }
 
 figure {
-padding:0;
-margin:0;
+    padding:0;
+    margin:.5em 0 .5em;
 }
 
 table {border-collapse:separate; border-spacing: 10px;border-radius:10px; margin: 5px 0;border: 1px dashed #BBB;background: #eeeeee;}
 table th {white-space: nowrap;} /*表头内容强制在一行显示*/
 table td:nth-child(1) {white-space: nowrap; } /*首列不换行*/
-img{max-width:640px;display:block;margin:4px 4em;-webkit-box-shadow:#999 1px 1px 4px;-moz-box-shadow:#999 1px 1px 4px;box-shadow:#999 1px 1px 4px;}
+img{max-width:640px;display:block;margin:1em 4em;-webkit-box-shadow:#999 1px 1px 4px;-moz-box-shadow:#999 1px 1px 4px;box-shadow:#999 1px 1px 4px;}
+
+blockquote{text-align:justify;border: rgb(226, 222, 222);border-style: solid;border-width:1px;border-radius: 10px;}
+blockquote{margin:.5em 0em;padding:0 1.5em;}
+blockquote p{margin:0;padding:.5em 0;}
 
 #wrapper {
     margin:0 auto;
@@ -243,7 +251,8 @@ div#menu li {
 
 .meta {
     overflow:hidden;
-    margin-bottom:26px;
+    margin-top:0;
+    margin-bottom:13px;
     padding:0px;
     text-align:left;
     font-size:13px;
@@ -348,7 +357,7 @@ body,
 }
 
 #sidebar h2 {
-    padding-top:13px;
+    padding-top:0;
     height:39px;
     line-height:1.5em;
     letter-spacing:-.5px;

@@ -11,7 +11,7 @@ Download Link of [Apache Spark](http://spark.apache.org/downloads.html)
 
 *Note: Starting version 2.0, Spark is built with Scala 2.11 and SBT 0.13.11 by default.*
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 # Master development branch
 git clone git://github.com/apache/spark.git
 
@@ -25,26 +25,26 @@ Refer to [Building Apache Spark](http://spark.apache.org/docs/latest/building-sp
 
 (Optional) Export the mvn path within spark source code  if not installed in your environment.
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 export MAVEN_HOME=/app/compiled/spark/build/apache-maven-3.3.9
 export PATH=$PATH:$MAVEN_HOME/bin
 {% endhighlight %}
 
 If using build/mvn with no MAVEN_OPTS set, the script will automate this for you.
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 export MAVEN_OPTS="-Xmx2g -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512m"
 {% endhighlight %}
 
 If you want to read from HDFS
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ./build/mvn -Pyarn -Phadoop-2.6 -Dhadoop.version=2.6.0 -DskipTests clean package
 {% endhighlight %}
 
 Or using SBT to compile to support day-to-day development since it can provide much faster iterative compilation.
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ./build/sbt -Pyarn -Phadoop-2.6 -Dhadoop.version=2.6.0 -DskipTests clean package
 {% endhighlight %}
 
@@ -52,13 +52,13 @@ Or using SBT to compile to support day-to-day development since it can provide m
 
 The following  issue gone after reboot the machine
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 [error] Required file not found: sbt-interface.jar
 [error] See zinc -help for information about locating necessary files
 {% endhighlight %}
 
 ### Step 3: Build a Runnable Distribution
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ./dev/make-distribution.sh --name custom-spark --tgz -Phadoop-2.6
 {% endhighlight %}

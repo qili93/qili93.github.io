@@ -1,6 +1,6 @@
 ---
 layout: post
-title: （转载）常用Git命令清单
+title: 常用Git命令清单（转载）
 categories:  剪贴板
 tags: Git
 ---
@@ -9,7 +9,7 @@ tags: Git
 
 一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。
 
-![img](../images/git-respository.png)
+![img](/images/git-respository.png)
 
 下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。
 

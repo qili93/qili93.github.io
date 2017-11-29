@@ -42,11 +42,11 @@ Refer to [Apache Spark源码走读之18 -- 使用Intellij idea调试Spark源码]
 
 **Step 1:** go to `Build -> Build Projec` and wait serveral minutes to compile the Spark project. Open the `org.apache.spark.examples.GroupByTest` and go to `Run -> Edit Configurations`, edit the configuration as following, and notice the configurations of Main class, VM options, Working directory and Use classpath of module.
 
-![idea-run-config](../images/idea-run-config.png)
+![idea-run-config](/images/idea-run-config.png)
 
 **Step 2:** try `Run -> Run GroupByTest` to ensure the sample can run successfully, and then set a breakpoint and got to `Run -> Debug GroupByTest` to debug Spark sourcec code in local mode.
 
-![idea-debug-groupbytest](../images/idea-debug-groupbytest.png)
+![idea-debug-groupbytest](/images/idea-debug-groupbytest.png)
 
 ### Fix build error - SBT
 
@@ -56,7 +56,7 @@ Some wried build errors gone after rebuild project by SBT in command line and re
 
 Caused by the src and its sub-folder are marked as source code. Solution: remove `src_managed/main/compiled_avro` that was in conflict with `src_managed/main` in the Module settings because of an [sbt-idea bug](https://github.com/mpeltonen/sbt-idea/issues/310). 
 
-![idea-fix-build-error-1](../images/idea-fix-build-error-1.png)
+![idea-fix-build-error-1](/images/idea-fix-build-error-1.png)
 
 #### Error 2 `SqlBaseParser is not a member of package org.apache.spark.sql.catalyst.parser` 
 
@@ -64,4 +64,4 @@ Caused by the src and its sub-folder are marked as source code. Solution: remove
 2. Add the generated-sourcec `$SPARK_HOME/sql/catalyst/target/generated-sources/antlr3/org/apache/spark/sql/catalyst/parser` as sourcec directory; some of the generated classes like `SparkSqlLexer.java` is there; 
 3. Open Module Settings. Click on `spark-catalyst` module. Go to Source tab in the right. Make `target/generated-source` as a source folder. 
 
-![idea-fix-build-error-2](../images/idea-fix-build-error-2.png)
+![idea-fix-build-error-2](/images/idea-fix-build-error-2.png)

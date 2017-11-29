@@ -28,9 +28,8 @@ Note that this information is only available for the duration of the application
 
 If Spark is run on Mesos or YARN, it is still possible to construct the UI of anapplication through Spark’s history server, provided that the application’s event logs exist.You can start the history server by executing:
 
-{% highlight bash linenos %}
+{% highlight shell linenos %}
 ./sbin/start-history-server.sh
-
 {% endhighlight %}
 
 This creates a web interface at `http://<server-url>:18080` by default, listing incompleteand completed applications and attempts.
