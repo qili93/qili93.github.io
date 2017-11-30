@@ -6,7 +6,14 @@ tags: Python
 date: 2017-06-05 17:03:47
 ---
 
-{% include toc.html html=content sanitize=true class="inline_toc" id="my_toc" h_min=2 h_max=3 %}
+----
+## Table of Content
+{:.no_toc}
+
+* TOC
+{:toc}
+
+----
 
 本文摘自[《A Byte of Python》中文版](https://bop.molun.net/)
 

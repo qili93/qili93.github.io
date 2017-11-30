@@ -2,7 +2,8 @@ permalink: pretty
 url: https://qili93.github.io/
 baseurl: /
 #highlighter: pygments
-plugins: [jekyll-paginate]
+plugins: 
+  - jekyll-paginate
 paginate: 30
 paginate_path: "page:num"
 name: Qi Li
@@ -23,6 +24,7 @@ highlighter: rouge
 # More › http://kramdown.gettalong.org/quickref.html
 # Options › http://kramdown.gettalong.org/options.html
 kramdown:
+  toc_levels: 1..2
   input:          GFM
   highlighter: rouge
   # https://github.com/jekyll/jekyll/pull/4090

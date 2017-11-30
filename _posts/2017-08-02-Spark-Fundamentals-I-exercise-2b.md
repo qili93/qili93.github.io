@@ -5,7 +5,14 @@ categories: Spark
 tags: Spark
 ---
 
-{% include toc.html html=content sanitize=true class="inline_toc" id="my_toc" h_min=2 h_max=3 %}
+----
+## Table of Content
+{:.no_toc}
+
+* TOC
+{:toc}
+
+----
 
 ## Lab 2b. Python - Working with RDD operations 
 
