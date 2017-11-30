@@ -6,11 +6,13 @@ tags: Python
 date: 2017-06-05 17:03:47
 ---
 
+{% include toc.html html=content sanitize=true class="inline_toc" id="my_toc" h_min=2 h_max=3 %}
+
 本文摘自[《A Byte of Python》中文版](https://bop.molun.net/)
 
-### 基础
+## 基础
 
-#### 数字
+### 数字
 
 数字主要分为两种类型——整数（Integers）与浮点数（Floats）。没有单独的 long 类型。int 类型可以指任何大小的整数。
 
@@ -19,11 +21,11 @@ date: 2017-06-05 17:03:47
 - 有关整数的例子即 2，它只是一个整数。
 - 有关浮点数（Floating Point Numbers，在英文中也会简写为 floats ）的例子是 3.23 或 52.3E-4。其中，E 表示 10 的幂。在这里，52.3E-4 表示 52.3 * 10^-4。
 
-#### 单引号和双引号
+### 单引号和双引号
 
 都可以用来制定字符串，所有引号内的空间，诸如空格与制表符，都将按原样保留。
 
-#### 三引号
+### 三引号
 
 你可以通过使用三个引号——""" 或 ''' 来指定多行字符串。你可以在三引号之间自由地使用单引号与双引号。来看看这个例子：
 
@@ -35,13 +37,13 @@ He said "Bond, James Bond."
 '''
 {% endhighlight %}
 
-#### 字符串是不可变的
+### 字符串是不可变的
 
 这意味着一旦你创造了一串字符串，你就不能再改变它。尽管这看起来像是一件坏事，但实际上并非如此。我们将会在稍后展现的多个程序中看到为何这一点不是一个限制。
 
 针对 C/C++ 程序员的提示: Python 中没有单独的 char 数据类型。它并非切实必要，并且我相信你不会想念它的。
 
-#### 格式化方法
+### 格式化方法
 
 Python 中 format 方法所做的事情便是将每个参数值替换至格式所在的位置：
 
@@ -79,7 +81,7 @@ print('b', end=' ')
 print('c')
 {% endhighlight %}
 
-#### 转义序列
+### 转义序列
 包含单引号字符串：
 - 通过 \ 来指定单引号：要注意它可是反斜杠。现在，你可以将字符串指定为` 'What\'s your name?'`；
 - 使用双引号：`"What's your name?"`。类似地， 你必须在使用双引号括起的字符串中对字符串内的双引号使用转义序列。同样，你必须使用转义序列 `\\ `来指定反斜杠本身。
@@ -96,15 +98,15 @@ print('c')
 This is the second sentence."
 {% endhighlight %}
 
-#### 原始字符串
+### 原始字符串
 
 在字符串前增加 r 或 R 来指定一个 原始（Raw） 字符串`r"Newlines are indicated by \n"`，例如反向引用可以通过 '\\1' 或 r'\1' 来实现。
 
-#### 变量
+### 变量
 
 变量只需被赋予某一值。不需要声明或定义数据类型。
 
-#### 逻辑行与物理行
+### 逻辑行与物理行
 
 所谓物理行（Physical Line）是你在编写程序时 你所看到 的内容。所谓逻辑行（Logical Line）是 Python 所看到 的单个语句。Python 会假定每一 物理行 会对应一个 逻辑行。Python 之中暗含这样一种期望：Python 鼓励每一行使用一句独立语句从而使得代码更加可读。
 
@@ -125,7 +127,7 @@ i = \
 
 在某些情况下，会存在一个隐含的假设，允许你不使用反斜杠。这一情况即逻辑行以括号开始，它可以是方括号或花括号，但不能是结束括号。这被称作**隐式行连接（Implicit Line Joining）**。你可以在后面当我们讨论列表（List）的章节时了解这一点。
 
-#### 缩进
+### 缩进
 
 空白区在各行的开头非常重要。这被称作 缩进（Indentation）。在逻辑行的开头留下空白区（使用空格或制表符）用以确定各逻辑行的缩进级别，而后者又可用于确定语句的分组。这意味着放置在一起的语句必须拥有相同的缩进。每一组这样的语句被称为 块（block）。
 
@@ -152,7 +154,7 @@ IndentationError: unexpected indent
 
 > **针对静态编程语言程序员的提示**: Python 将始终对块使用缩进，并且绝不会使用大括号。你可以通过运行 from__future__import braces 来了解更多信息。
 
-### 运算符与表达式
+## 运算符与表达式
 
 | 运算符         | 操作                                       | 举例                                       |
 | ----------- | ---------------------------------------- | ---------------------------------------- |
@@ -179,9 +181,9 @@ IndentationError: unexpected indent
 | and （布尔“与”） | 如果 x 是 False，则 x and y 返回 False，否则返回 y 的计算值。 | 当 x 是 False 时，x = False; y = True; x and y 将返回 False。 |
 | or（布尔“或”）   | 如果 x 是 True，则返回 True，否则它将返回 y 的计算值。      | x = Ture; y = False; x or y 将返回 Ture。在这里短路计算同样适用。 |
 
-### 控制流
+## 控制流
 
-#### if 语句
+### if 语句
 
 {% highlight python linenos %}
 number = 23
@@ -207,7 +209,7 @@ print('Done')
 
 > **针对 C/C++ 程序员的提示**: Python 中不存在 switch 语句。你可以通过使用 if..elif..else 语句来实现同样的事情（在某些情况下，使用一部字典能够更快速地完成）。
 
-#### while 语句
+### while 语句
 
 你可以在 while 循环中使用 else 从句。
 
@@ -234,7 +236,7 @@ else:
 print('Done')
 {% endhighlight %}
 
-#### for 循环
+### for 循环
 
 {% highlight python linenos %}
 # 通过内置的 range 函数生成这一数字序列
@@ -251,7 +253,7 @@ else:
 > Python 中的 for 循环和 C/C++ 中的 for 循环可以说是完全不同。C# 程序员会注意到 Python 中的 for 循环与 C# 中的 foreach 循环相似。Java 程序员则会注意到它同样与 Java 1.5 中的 for (int i : IntArray) 无甚区别。  
 > 在 C/C++ 中，如果你希望编写 for (int i = 0; i < 5; i++)，那么在 Python 你只需要写下 for i in range(0,5)。正如你所看到的，Python 中的 for 循环将更加简单，更具表现力且更不容易出错。
 
-#### break 语句
+### break 语句
 
 break 语句用以中断（Break）循环语句，也就是中止循环语句的执行，即使循环条件没有变更为 False，或队列中的项目尚未完全迭代依旧如此。
 
@@ -266,7 +268,7 @@ while True:
 print('Done')
 {% endhighlight %}
 
-#### continue 语句
+### continue 语句
 
 continue 语句用以告诉 Python 跳过当前循环块中的剩余语句，并继续该循环的下一次迭代。要注意 continue 语句同样能用于 for 循环。
 
@@ -282,7 +284,7 @@ while True:
     # 自此处起继续进行其它任何处理
 {% endhighlight %}
 
-### 函数
+## 函数
 
 内置函数，例如`len`和`range`。函数可以通过关键字 `def` 来定义。这一关键字后跟一个函数的标识符名称，再跟一对圆括号，其中可以包括一些变量的名称，再以冒号结尾，结束这一行。随后而来的语句块是函数的一部分。
 
@@ -307,7 +309,7 @@ y = 7
 print_max(x, y)
 {% endhighlight %}
 
-#### 局部变量
+### 局部变量
 
 当你在一个函数的定义中声明变量时，它们不会以任何方式与身处函数之外但具有相同名称的变量产生关系，也就是说，这些变量名只存在于函数这一局部（Local）。这被称为变量的作用域（Scope）。所有变量的作用域是它们被定义的块，从定义它们的名字的定义点开始。
 
@@ -332,7 +334,7 @@ Changed local x to 2
 x is still 50
 {% endhighlight %}
 
-#### global 语句
+### global 语句
 
 如果你想给一个在程序顶层的变量赋值（也就是说它不存在于任何作用域中，无论是函数还是类），那么你必须告诉 Python 这一变量并非局部的，而是全局（Global）的。我们需要通过 global 语句来完成这件事。因为在不使用 global 语句的情况下，不可能为一个定义于函数之外的变量赋值。
 
@@ -364,7 +366,7 @@ Value of x is 2
 `global` 语句用以声明 `x` 是一个全局变量——因此，当我们在函数中为 `x` 进行赋值时，这一改动将影响到我们在主代码块中使用的 `x` 的值。
 你可以在同一句 `global` 语句中指定不止一个的全局变量，例如 `global x, y, z`。
 
-#### 默认参数值
+### 默认参数值
 
 对于一些函数来说，你可能为希望使一些参数可选并使用默认的值，以避免用户不想为他们提供值的情况。默认参数值可以有效帮助解决这一情况。你可以通过在函数定义时附加一个赋值运算符（=）来为参数指定默认参数值。要注意到，默认参数值应该是常数。更确切地说，默认参数值应该是不可变的。
 
@@ -388,7 +390,7 @@ WorldWorldWorldWorldWorld
 > * 只有那些位于参数列表末尾的参数才能被赋予默认参数值，意即在函数的参数列表中拥有默认参数值的参数不能位于没有默认参数值的参数之前。  
 > * 这是因为值是按参数所处的位置依次分配的。举例来说，def func(a, b=5) 是有效的，但 def func(a=5, b) 是无效的。
 
-#### 关键字参数
+### 关键字参数
 
 如果你有一些具有许多参数的函数，而你又希望只对其中的一些进行指定，那么你可以通过命名它们来给这些参数赋值——这就是关键字参数（Keyword Arguments）——我们使用命名（关键字）而非位置（一直以来我们所使用的方式）来指定函数中的参数。
 
@@ -412,7 +414,7 @@ a is 25 and b is 5 and c is 24
 a is 100 and b is 5 and c is 50
 {% endhighlight %}
 
-#### 可变参数
+### 可变参数
 
 有时你可能想定义的函数里面能够有任意数量的变量，也就是参数数量是可变的，这可以通过使用星号来实现：
 
@@ -450,7 +452,7 @@ None
 
 类似地，当我们声明一个诸如 **param 的双星号参数时，从此处开始直至结束的所有关键字参数都将被收集并汇集成一个名为 param 的字典（Dictionary）。
 
-#### return 语句
+### return 语句
 
 `return` 语句用于从函数中返回，也就是中断函数。我们也可以选择在中断函数时从函数中返回一个值。+
 
@@ -484,7 +486,7 @@ def some_function():
 
 Python 中的 pass 语句用于指示一个没有内容的语句块。
 
-#### DocStrings
+### DocStrings
 
 Python 有一个甚是优美的功能称作文档字符串（Documentation Strings），在称呼它时通常会使用另一个短一些的名字docstrings。DocStrings 是一款你应当使用的重要工具，它能够帮助你更好地记录程序并让其更加易于理解。令人惊叹的是，当程序实际运行时，我们甚至可以通过一个函数来获取文档！
 
@@ -526,7 +528,7 @@ Prints the maximum of two numbers.
 
 自动化工具可以以这种方式检索你的程序中的文档。因此，我强烈推荐你为你编写的所有重要的函数配以文档字符串。你的 Python 发行版中附带的 `pydoc `命令与 `help()` 使用文档字符串的方式类似。
 
-### 模块
+## 模块
 
 在上一章，你已经了解了如何在你的程序中通过定义一次函数工作来重用代码。那么如果你想在你所编写的别的程序中重用一些函数的话，应该怎么办？正如你可能想象到的那样，答案是模块（Modules）。
 
@@ -565,7 +567,7 @@ The PYTHONPATH is ['/tmp/py',
 '/usr/local/lib/python2.7/site-packages']
 {% endhighlight %}
 
-#### 按字节码编译的 .pyc 文件
+### 按字节码编译的 .pyc 文件
 
 导入一个模块是一件代价高昂的事情，因此 Python 引入了一些技巧使其能够更快速的完成。其中一种方式便是创建按字节码编译的（Byte-Compiled）文件，这一文件以 `.pyc` 为其扩展名，是将 Python 转换成中间形式的文件（还记得《介绍》一章中介绍的 Python 是如何工作的吗？）。这一 `.pyc` 文件在你下一次从其它不同的程序导入模块时非常有用——它将更加快速，因为导入模块时所需要的一部分处理工作已经完成了。同时，这些按字节码编译的文件是独立于运行平台的。
 
@@ -584,7 +586,7 @@ from math import sqrt
 print("Square root of 16 is", sqrt(16))
 {% endhighlight %}
 
-#### 模块的 `__name__`
+### 模块的 `__name__`
 
 每个模块都有一个名称，而模块中的语句可以找到它们所处的模块的名称。这对于确定模块是独立运行的还是被导入进来运行的这一特定目的来说大为有用。正如先前所提到的，当模块第一次被导入时，它所包含的代码将被执行。我们可以通过这一特性来使模块以不同的方式运行，这取决于它是为自己所用还是从其它从的模块中导入而来。这可以通过使用模块的 `__name__ `属性来实现。
 
@@ -611,7 +613,7 @@ I am being imported from another module
 
 每一个 Python 模块都定义了它的` __name__ `属性。如果它与 `__main__ `属性相同则代表这一模块是由用户独立运行的，因此我们便可以采取适当的行动。
 
-#### 编写你自己的模块
+### 编写你自己的模块
 
 编写你自己的模块很简单，这其实就是你一直在做的事情！这是因为每一个 Python 程序同时也是一个模块。你只需要保证它以 .py 为扩展名即可。下面的案例会作出清晰的解释。
 
@@ -672,7 +674,7 @@ from mymodule import *
 > **Python 之禅**  
 > Python 的一大指导原则是“明了胜过晦涩”2。你可以通过在 Python 中运行 `import this` 来了解更多内容。  
 
-#### dir 函数
+### dir 函数
 
 内置的 `dir()` 函数能够返回由对象所定义的名称列表。 如果这一对象是一个模块，则该列表会包括函数内所定义的函数、类与变量。
 
@@ -720,7 +722,7 @@ $ python
 
 同时，还有一个 `vars()` 函数也可以返回给你这些值的属性，但只是可能，它并不能针对所有类都能正常工作。
 
-#### 包
+### 包
 
 现在，你必须开始遵守用以组织你的程序的层次结构。变量通常位于函数内部，函数与全局变量通常位于模块内部。如果你希望组织起这些模块的话，应该怎么办？这便是包（Packages）应当登场的时刻。
 
@@ -750,7 +752,7 @@ $ python
 
 如同函数是程序中的可重用部分那般，模块是一种可重用的程序。包是用以组织模块的另一种层次结构。Python 所附带的标准库就是这样一组有关包与模块的例子。
 
-### 数据结构
+## 数据结构
 
 Python 中有四种内置的数据结构——列表（List）、元组（Tuple）、字典（Dictionary）和集合（Set）
 
@@ -803,7 +805,7 @@ My shopping list is now ['banana', 'carrot', 'mango', 'rice']
 如果你想了解列表对象定义的所有方法，可以通过 help(list) 来了解更多细节。
 
 
-#### 元组（Tuple）
+### 元组（Tuple）
 
 元组（Tuple）用于将多个对象保存到一起。你可以将它们近似地看作列表，元组的一大特征类似于字符串，它们是不可变的，也就是说，你不能编辑或更改元组。
 
@@ -845,7 +847,7 @@ Number of animals in the new zoo is 5
 > 然而，一个只拥有一个项目的元组并不像这样简单。你必须在第一个（也是唯一一个）项目的后面加上一个逗号来指定它，如此一来 Python 才可以识别出在这个表达式想表达的究竟是一个元组还是只是一个被括号所环绕的对象，也就是说，如果你想指定一个包含项目 2 的元组，你必须指定 `singleton = (2, )`。
 
 
-#### 字典（Dictionary）
+### 字典（Dictionary）
 
 字典就像一本地址簿，如果你知道了他或她的姓名，你就可以在这里找到其地址或是能够联系上对方的更多详细信息，换言之，我们将键值（Keys）（即姓名）与值（Values）（即地址等详细信息）联立到一起，在这里要注意到键值必须是唯一的。
 
@@ -899,7 +901,7 @@ Guido's address is guido@python.org
 
 我们可以使用 in 运算符来检查某对键值—值配对是否存在。要想了解有关 dict 类的更多方法，请参阅 help(dict)。
 
-#### 如何进行字典排序
+### 如何进行字典排序
 
 python dict按照key 排序：
 
@@ -936,7 +938,7 @@ sorted(...)
 sorted(iterable, cmp=None, key=None, reverse=False) --> new sorted list
 {% endhighlight %}
 
-#### 序列（Sequence）
+### 序列（Sequence）
 
 列表、元组和字符串可以看作序列（Sequence）的某种表现形式，序列的主要功能是资格测试（Membership Test）（也就是 in 与 not in 表达式）和索引操作（Indexing Operations），它们能够允许我们直接获取序列中的特定项目。
 
@@ -1012,7 +1014,7 @@ characters start to end is swaroop
 ['banana', 'carrot', 'mango', 'apple']
 {% endhighlight %}
 
-#### 集合（Set）
+### 集合（Set）
 
 集合（Set）是简单对象的无序集合（Collection）。当集合中的项目存在与否比起次序或其出现次数更加重要时，我们就会使用集合。
 
@@ -1034,7 +1036,7 @@ True
 {% endhighlight %}
 
 
-#### 引用 (Reference)
+### 引用 (Reference)
 
 当你创建了一个对象并将其分配给某个变量时，变量只会查阅（Refer）某个对象，并且它也不会代表对象本身。也就是说，变量名只是指向你计算机内存中存储了相应对象的那一部分。这叫作将名称绑定（Binding）给那一个对象。
 
@@ -1080,7 +1082,7 @@ mylist is ['carrot', 'banana']
 
 你要记住如果你希望创建一份诸如序列等复杂对象的副本（而非整数这种简单的对象（Object）），你必须使用切片操作来制作副本。如果你仅仅是将一个变量名赋予给另一个名称，那么它们都将“查阅”同一个对象，如果你对此不够小心，那么它将造成麻烦。
 
-#### 有关字符串的更多内容
+### 有关字符串的更多内容
 
 字符串同样也是一种对象，并且它也具有自己的方法，可以做到检查字符串中的一部分或是去掉空格等几乎一切事情！
 
@@ -1116,7 +1118,7 @@ Brazil_*_Russia_*_India_*_China
 
 `find` 方法用于定位字符串中给定的子字符串的位置。如果找不到相应的子字符串，`find` 会返回 -1。`str` 类同样还拥有一个简洁的方法用以 联结（Join）序列中的项目，其中字符串将会作为每一项目之间的分隔符，并以此生成并返回一串更大的字符串。
 
-### 类与对象
+## 类与对象
 
 类与对象是面向对象编程的两个主要方面。一个**类（Class）**能够创建一种新的**类型（Type）**，其中**对象（Object）**就是类的**实例（Instance）**。
 
@@ -1124,15 +1126,15 @@ Brazil_*_Russia_*_India_*_China
 
 字段有两种类型——它们属于某一类的各个实例或对象，或是从属于某一类本身。它们被分别称作**实例变量（Instance Variables）**与**类变量（Class Variables）**。
 
-#### `self`
+### `self`
 
 Python 中的 self 相当于 C++ 中的指针以及 Java 与 C# 中的 this 指针。
 
-#### `__init__ `方法
+### `__init__ `方法
 
 `__init__ `方法会在类的对象被实例化（Instantiated）时立即运行。这一方法可以对任何你想进行操作的目标对象进行初始化（Initialization）操作。这里你要注意在 init 前后加上的双下划线。
 
-#### 类变量与对象变量
+### 类变量与对象变量
 
 **字段（Filed）**有两种类型——类变量与对象变量，它们根据究竟是类还是对象拥有这些变量来进行分类。
 
@@ -1200,7 +1202,7 @@ Python的实例有自己的__dict__，它对应的类也有自己的__dict__   �
 print cls.__dict__
 print ins1.__dict__
 
-###########输出##########
+########输出#######
 
 {'clsvar': 1, '__module__': '__main__', '__doc__': None, '__init__': <function __init__ at 0x101bbc398>}
 {'insvar': 2}
@@ -1219,7 +1221,7 @@ ins1.clsvar = 20
 print ins1.__dict__
 print cls.__dict__
 
-###########输出##########
+########输出#######
 {'insvar': 2, 'clsvar': 20}
 {'clsvar': 1, '__module__': '__main__', '__doc__': None, '__init__': <function __init__ at 0x10c768398>}
 {% endhighlight %}
@@ -1271,7 +1273,7 @@ class Dict2Obj:
         self.__dict__.update(bokeyuan)  
 {% endhighlight %}
 
-#### 继承
+### 继承
 
 面向对象编程的一大优点是对代码的重用（Reuse），重用的一种实现方法就是通过继承（Inheritance）机制。继承最好是想象成在类之间实现类型与子类型（Type and Subtype）关系的工具。
 
@@ -1338,9 +1340,9 @@ Name:"Mrs. Shrividya" Age:"40" Salary: "30000"
 Name:"Swaroop" Age:"25" Marks: "75"
 {% endhighlight %}
 
-### 输入与输出
+## 输入与输出
 
-#### 控制台输入输出
+### 控制台输入输出
 
 通过 `input()` 函数与 `print` 函数来实现这一需求。`input()` 函数可以接受一个字符串作为参数，并将其展示给用户。尔后它将等待用户输入内容或敲击返回键。一旦用户输入了某些内容并敲下返回键，`input()` 函数将返回用户输入的文本。
 
@@ -1376,7 +1378,7 @@ Enter text: racecar
 Yes, it is a palindrome
 {% endhighlight %}
 
-#### 文件
+### 文件
 
 你可以通过创建一个属于 `file` 类的对象并适当使用它的 `read`、`readline`、`write` 方法来打开或使用文件，并对它们进行读取或写入。读取或写入文件的能力取决于你指定以何种方式打开文件。最后，当你完成了文件，你可以调用 `close` 方法来告诉 Python 我们已经完成了对该文件的使用。
 
@@ -1423,7 +1425,7 @@ if you wanna make your work also fun:
     use Python!
 {% endhighlight %}
 
-#### Pickle
+### Pickle
 
 Python 提供了一个叫作 `Pickle` 的标准模块，通过它你可以将*任何*纯 Python 对象存储到一个文件中，并在稍后将其取回。这叫作*持久地（Persistently）*存储对象。
 
@@ -1462,7 +1464,7 @@ $ python io_pickle.py
 ['apple', 'mango', 'carrot']
 {% endhighlight %}
 
-#### Unicode
+### Unicode
 
 如果你正在使用 Python 2，我们又希望能够读写其它非英语语言，我们需要使用 `unicode` 类型，它全都以字母 `u` 开头，例如 `u"hello world"`。
 
@@ -1495,9 +1497,9 @@ print(text)
 
 我们使用 `io.open` 并提供了“编码（Encoding）”与“解码（Decoding）”参数来告诉 Python 我们正在使用 Unicode。
 
-### 异常和错误
+## 异常和错误
 
-#### 错误
+### 错误
 
 你可以想象一个简单的 `print` 函数调用。如果我们把 `print` 误拼成 `Print` 会怎样？你会注意到它的首字母是大写。在这一例子中，Python 会*抛出（Raise）*一个语法错误。
 
@@ -1512,7 +1514,7 @@ Hello World
 
 你会注意到一个 `NameError` 错误被抛出，同时 Python 还会打印出检测到的错误发生的位置。这就是一个错误**错误处理器（Error Handler）**[2](https://bop.molun.net/16.exceptions.html#fn_2) 为这个错误所做的事情。
 
-#### 异常
+### 异常
 
 我们将**尝试（Try）**去读取用户的输入内容。按下 `[ctrl-d]` 来看看会发生什么事情。
 
@@ -1525,7 +1527,7 @@ EOFError
 
 此处 Python 指出了一个称作 `EOFError` 的错误，代表着它发现了一个*文件结尾（End of File）*符号（由 `ctrl-d` 实现）在不该出现的时候出现了。
 
-#### 处理异常
+### 处理异常
 
 我们可以通过使用 `try..except` 来处理异常状况。我们将所有可能引发异常或错误的语句放在 `try` 代码块中，并将相应的错误或异常的处理器（Handler）放在 `except` 子句或代码块中。`except` 子句可以处理某种特定的错误或异常，或者是一个在括号中列出的错误或异常。如果没有提供错误或异常的名称，它将处理*所有*错误与异常。
 
@@ -1558,7 +1560,7 @@ Enter something --> No exceptions
 You entered No exceptions
 {% endhighlight %}
 
-#### 抛出异常
+### 抛出异常
 
 你可以通过 `raise` 语句来*引发*一次异常，具体方法是提供错误名或异常名以及要*抛出（Thrown）*异常的对象。
 
@@ -1607,7 +1609,7 @@ Enter something --> abc
 No exception was raised.
 {% endhighlight %}
 
-#### Try ... Finally
+### Try ... Finally
 
 假设你正在你的读取中读取一份文件。你应该如何确保文件对象被正确关闭，无论是否会发生异常？这可以通过 `finally` 块来完成。
 
@@ -1656,7 +1658,7 @@ Press ctrl+c now
 (Cleaning up: Closed the file)
 {% endhighlight %}
 
-#### `with` 语句
+### `with` 语句
 
 在 `try` 块中获取资源，然后在 `finally` 块中释放资源是一种常见的模式。因此，还有一个 `with` 语句使得这一过程可以以一种干净的姿态得以完成。
 
@@ -1676,11 +1678,11 @@ with open("poem.txt") as f:
 
 因此，我们在 `finally` 代码块中编写的代码应该格外留心 `__exit__` 方法的自动操作。这能够帮助我们避免重复显式使用 `try..finally` 语句。
 
-### 标准库
+## 标准库
 
 你能在你的 Python 安装包中附带的文档中的[“库概览（Library Reference）” 部分](http://docs.python.org/3/library/)中查找到所有模块的全部细节。
 
-#### `sys` 模块
+### `sys` 模块
 
 `sys` 模块包括了一些针对特定系统的功能。我们已经了解过 `sys.argv` 列表中包括了命令行参数。
 
@@ -1698,7 +1700,7 @@ True
 
 `sys` 模块包含一个 `version_info` 元组，它提供给我们版本信息。第一个条目是主版本信息。我们可以调出这些信息并使用它。
 
-#### 日志模块
+### 日志模块
 
 如果你想将一些调试（Debugging）信息或一些重要的信息储存在某个地方，以便你可以检查你的程序是否如你所期望那般运行，应该怎么做？你应该如何将这些信息“储存在某个地方”？这可以通过 `logging` 模块来实现。
 
@@ -1746,15 +1748,15 @@ $ cat /Users/swa/test.log
 {% endhighlight %}
 
 
-#### 每周模块系列
+### 每周模块系列
 
 标准库中还有许多模块值得探索，例如一些[用以调试（Debugging）的模块](http://docs.python.org/3/library/pdb.html)， [处理命令行选项的模块](http://docs.python.org/3/library/argparse.html)，[正则表达式（Regular Expressions）模块](http://docs.python.org/3/library/re.html) 等等等等。
 
 进一步探索标准库的最好方法是阅读由 Doug Hellmann 撰写的优秀的 [Python Module of the Week](http://pymotw.com/2/contents.html) 系列（你还可以阅读[它的实体书](http://amzn.com/0321767349)或是阅读 [Python 官方文档](http://docs.python.org/3/)）。
 
-### 更多
+## 更多
 
-#### 传递元组
+### 传递元组
 
 你可曾希望从一个函数中返回两个不同的值？你能做到的。只需要使用一个元组。
 
@@ -1782,7 +1784,7 @@ $ cat /Users/swa/test.log
 (8, 5)
 {% endhighlight %}
 
-#### 特殊方法
+### 特殊方法
 
 诸如 `__init__` 和 `__del__` 等一些方法对于类来说有特殊意义。
 
@@ -1803,7 +1805,7 @@ $ cat /Users/swa/test.log
 - `__len__(self)`
   - 当针对序列对象使用内置 `len()` 函数时会被调用
 
-#### 单语句块
+### 单语句块
 
 我们已经见识过每一个语句块都由其自身的缩进级别与其它部分相区分。 是这样没错，不过有一个小小的警告。如果你的语句块只包括单独的一句语句，那么你可以在同一行指定它，例如条件语句与循环语句。下面这个例子应该能比较清楚地解释：
 
@@ -1816,7 +1818,7 @@ Yes
 
 注意，单个语句是在原地立即使用的，它不会被看作一个单独的块。尽管，你可以通过这种方式来使你的程序更加*小巧*，但除非是为了检查错误，我强烈建议你避免使用这种快捷方法，这主要是因为如果你不小心使用了一个“恰到好处”的缩进，它就很容易添加进额外的语句。
 
-#### Lambda 表格
+### Lambda 表格
 
 `lambda` 语句可以创建一个新的函数对象。从本质上说，`lambda` 需要一个参数，后跟一个表达式作为函数体，这一表达式执行的值将作为这个新函数的返回值。
 
@@ -1838,7 +1840,7 @@ $ python more_lambda.py
 [{'y': 1, 'x': 4}, {'y': 3, 'x': 2}]
 {% endhighlight %}
 
-#### 列表推导
+### 列表推导
 
 列表推导（List Comprehension）用于从一份现有的列表中得到一份新列表。想象一下，现在你已经有了一份数字列表，你想得到一个相应的列表，其中的数字在大于 2 的情况下将乘以 2。列表推导就是这类情况的理想选择。
 
@@ -1861,7 +1863,7 @@ $ python more_list_comprehension.py
 [6, 8]
 {% endhighlight %}
 
-#### 在函数中接收元组与字典
+### 在函数中接收元组与字典
 
 有一种特殊方法，即分别使用 `*` 或 `**` 作为元组或字典的前缀，来使它们作为一个参数为函数所接收。当函数需要一个可变数量的实参时，这将颇为有用。
 
@@ -1881,7 +1883,7 @@ $ python more_list_comprehension.py
 
 因为我们在 `args` 变量前添加了一个 `*` 前缀，函数的所有其它的额外参数都将传递到 `args` 中，并作为一个元组予以储存。如果采用的是 `**` 前缀，则额外的参数将被视为字典的键值—值配对。
 
-#### `assert` 语句
+### `assert` 语句
 
 `assert` 语句用以断言（Assert）某事是真的。例如说你非常确定你正在使用的列表中至少包含一个元素，并想确认这一点，如果其不是真的，就抛出一个错误，`assert` 语句就是这种情况下的理想选择。当语句断言失败时，将会抛出 `AssertionError`。
 
@@ -1898,7 +1900,7 @@ AssertionError
 
 你应该明智地选用 `assert` 语句。在大多数情况下，它好过捕获异常，也好过定位问题或向用户显示错误信息然后退出。
 
-#### 装饰器
+### 装饰器
 
 装饰器（Decorators）是应用包装函数的快捷方式。这有助于将某一功能与一些代码一遍又一遍地“包装”。举个例子，我为自己创建了一个 `retry` 装饰器，这样我可以将其运用到任何函数之中，如果在一次运行中抛出了任何错误，它就会尝试重新运行，直到最大次数 5 次，并且每次运行期间都会有一定的延迟。这对于你在对一台远程计算机进行网络调用的情况十分有用。请参阅：
 
@@ -1968,7 +1970,7 @@ Write to a database or make a network call or etc.
 This will be automatically retried if exception is thrown.
 {% endhighlight %}
 
-### 迈出下一步
+## 迈出下一步
 
 如果到现在你已经阅读过本书并且编写了许多程序，那么你一定已经开始熟悉并且习惯 Python 了。或许你已经创建了一些 Python 程序来尝试完成一些工作，同时锻炼你自己的 Python 技能。如果你尚未至此，你也应该作出努力。现在我们面临的问题是“下一步该做什么？”。
 
@@ -1986,7 +1988,7 @@ This will be automatically retried if exception is thrown.
 
 只要你想，替换命令可以或简单或复杂地实现，从简单的字符串替换到搜寻搭配的样式（正则表达式）。
 
-#### 下一个项目
+### 下一个项目
 
 如果你发现上面的程序都能很容易地编写出来，那么看看下面这个完整的项目列表，并尝试编写你自己的程序：<https://github.com/thekarangoel/Projects#numbers> (这一列表与 [Martyr2 的超级项目列表](http://www.dreamincode.net/forums/topic/78802-martyr2s-mega-project-ideas-list/)相同)。
 
@@ -1995,26 +1997,26 @@ This will be automatically retried if exception is thrown.
 - [Exercises for Programmers: 57 Challenges to Develop Your Coding Skills](https://pragprog.com/book/bhwb/exercises-for-programmers)
 - [Intermediate Python Projects](https://openhatch.org/wiki/Intermediate_Python_Workshop/Projects)
 
-#### 示例代码
+### 示例代码
 
 学习一门编程语言的最好方式就是编写大量代码，并阅读大量代码：
 
 - [Python Cookbook](http://code.activestate.com/recipes/langs/python/) 是一本极具价值的“烹饪法”与提示的集合，它介绍了如何通过 Python 解决某些特定类型的问题。
 - [Python Module of the Week](http://pymotw.com/2/contents.html) 是另一本优秀的[标准库](https://bop.molun.net/stdlib.md#stdlib)必读指南。
 
-#### 建议
+### 建议
 
 - [The Hitchhiker's Guide to Python!](http://docs.python-guide.org/en/latest/)
 - [The Elements of Python Style](https://github.com/amontalenti/elements-of-python-style)
 - [Python Big Picture](http://slott-softwarearchitect.blogspot.ca/2013/06/python-big-picture-whats-roadmap.html)
 - ["Writing Idiomatic Python" ebook](http://www.jeffknupp.com/writing-idiomatic-python-ebook/) （付费）
 
-#### 视频
+### 视频
 
 - [Full Stack Web Development with Flask](https://github.com/realpython/discover-flask)
 - [PyVideo](http://www.pyvideo.org/)
 
-#### 问与答
+### 问与答
 
 - [Official Python Dos and Don'ts](http://docs.python.org/3/howto/doanddont.html)
 - [Official Python FAQ](http://www.python.org/doc/faq/general/)
@@ -2022,29 +2024,29 @@ This will be automatically retried if exception is thrown.
 - [Python Interview Q & A](http://dev.fyicenter.com/Interview-Questions/Python/index.html)
 - [StackOverflow questions tagged with python](http://stackoverflow.com/questions/tagged/python)
 
-#### 教程
+### 教程
 
 - [Hidden features of Python](http://stackoverflow.com/q/101268/4869)
 - [What's the one code snippet/python trick/etc did you wish you knew when you learned python?](http://www.reddit.com/r/Python/comments/19dir2/whats_the_one_code_snippetpython_tricketc_did_you/)
 - [Awaretek's comprehensive list of Python tutorials](http://www.awaretek.com/tutorials.html)
 
-#### 讨论
+### 讨论
 
 如果你遇到了一个 Python 问题，但不知道该问谁，那么 [python-tutor list](http://mail.python.org/mailman/listinfo/tutor) 是你提问的最佳场所。
 
 请确保你会自己做你的家庭作业，你会首先尝试自己解决问题，同时，还要会[问聪明的问题](http://catb.org/~esr/faqs/smart-questions.html)。
 
-#### 新闻
+### 新闻
 
 如果你希望了解 Python 世界的最新动态，那就跟随 [Official Python Planet](http://planet.python.org/) 的脚步吧。
 
-#### 安装库
+### 安装库
 
 [Python 库索引](http://pypi.python.org/pypi)中包含了大量开源的库，你可以在你自己的程序中使用它们。
 
 要想了解如何安装并使用这些库，你可以使用 [pip](http://www.pip-installer.org/en/latest/)。
 
-#### 创建一个网站
+### 创建一个网站
 
 学习使用 [Flask](http://flask.pocoo.org/) 来创建你自己的网站。下面这些资源有助于你开始学习：
 
@@ -2052,7 +2054,7 @@ This will be automatically retried if exception is thrown.
 - [The Flask Mega-Tutorial](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
 - [Example Flask Projects](https://github.com/mitsuhiko/flask/tree/master/examples)
 
-#### 图形软件
+### 图形软件
 
 假设你希望使用 Python 来创建你自己的图形程序。这可以通过采用一个 GUI（Graphical User Interface，图形用户界面）库和它们的 Python 绑定来实现。绑定是允许你用 Python 编写你自己的程序，然后使用它们在 C 或 C++ 或其它语言写编写的库。
 
@@ -2067,7 +2069,7 @@ This will be automatically retried if exception is thrown.
 - wxPython
   - 这是 wxWidgets 工具包的 Python 绑定。wxPython 有一个与之相关的学习曲线。不过，它非常便携，并且可以运行在 GNU/Linux、Windwos、Mac、甚至是嵌入式平台中。有许多 IDE 可以采用 wxPython，并且包含了 GUI 设计工具，例如 [SPE (Stani's Python Editor)](http://spe.pycs.net/) 还有 [wxGlade](http://wxglade.sourceforge.net/) GUI 构建工具。你可以使用 wxPython 来创建免费或专有的软件。要想开始使用，请阅读[wxPython 教程](http://zetcode.com/wxpython/)。
 
-##### GUI 工具总结
+#### GUI 工具总结
 
 想要了解更多的选择，可以参阅 [GuiProgramming wiki page at the official python website](http://www.python.org/cgi-bin/moinmoin/GuiProgramming)。
 
@@ -2075,7 +2077,7 @@ This will be automatically retried if exception is thrown.
 
 有关更详尽且更全面的分析，请参阅 ['The Python Papers, Volume 3, Issue 1' (PDF)](http://archive.pythonpapers.org/ThePythonPapersVolume3Issue1.pdf) 的第 26 页。
 
-#### 各种实现
+### 各种实现
 
 编程语言主要有两部分——语言与软件。语言是你*如何*编写，软件是你*怎样*实际运行我们的程序。
 
@@ -2094,7 +2096,7 @@ This will be automatically retried if exception is thrown.
 
 上述这些实现每一种都有其大有作为的专门领域。
 
-#### 函数式编程（面向高阶读者）
+### 函数式编程（面向高阶读者）
 
 当你开始编写更加庞大的程序时，你应该清楚了解更多关于使用函数的方式来进行编程，而不是我们在[《面向对象编程》章节中](https://bop.molun.net/14.oop.html#oop)所学习的基于类的方式进行编程：
 
