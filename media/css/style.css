@@ -438,3 +438,12 @@ and (max-device-width : 480px) {
 {width:auto;}
 
 }
+
+MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    displayAlign: "left"
+});
+
+.MathJax_Display {
+  text-align: left !important;
+}
