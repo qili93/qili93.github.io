@@ -77,7 +77,7 @@ pre code{
     overflow:auto;
     border: 1px dashed #BBB;
     background: #eeeeee;
-    padding:0;
+    padding:0 0 0 6px;
     margin:0;
 }
 
