@@ -1,5 +1,5 @@
 .hll { background-color: #ffffcc }
-.c { color: #60a0b0; font-style: italic } /* Comment */
+.c { color: #808080; font-style: italic } /* Comment */
 .err { border: 1px solid #FF0000 } /* Error */
 .k { color: #007020; font-weight: bold } /* Keyword */
 .o { color: #666666 } /* Operator */
